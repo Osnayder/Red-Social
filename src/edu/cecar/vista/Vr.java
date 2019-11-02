@@ -55,6 +55,7 @@ public class Vr extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Rgistro de Usuario");
         getContentPane().setLayout(null);
 
         jLabel1.setText("Numero Cedula:");
@@ -151,7 +152,7 @@ public class Vr extends javax.swing.JFrame {
         getContentPane().add(jLabel11);
         jLabel11.setBounds(320, 100, 80, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas", "Accesoria", " " }));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(410, 100, 150, 30);
 

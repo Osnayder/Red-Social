@@ -36,33 +36,35 @@ public class Vp extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("RESOC");
         getContentPane().setLayout(null);
 
         jButton1.setText("Registro");
         getContentPane().add(jButton1);
-        jButton1.setBounds(90, 220, 90, 23);
+        jButton1.setBounds(120, 220, 100, 30);
 
         jButton2.setText("Iniciar Sesión");
         getContentPane().add(jButton2);
-        jButton2.setBounds(320, 220, 95, 23);
+        jButton2.setBounds(320, 220, 110, 30);
 
         jLabel1.setText("Inicio de Sesión");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(233, 57, 74, 14);
+        jLabel1.setBounds(240, 50, 110, 30);
 
         jLabel2.setText("Usuario");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(130, 110, 36, 30);
+        jLabel2.setBounds(126, 110, 50, 30);
 
         jLabel3.setText("Contraseña");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(120, 160, 56, 30);
+        jLabel3.setBounds(106, 160, 70, 30);
         getContentPane().add(jPasswordField1);
         jPasswordField1.setBounds(200, 160, 180, 30);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(200, 110, 180, 30);
 
-        pack();
+        setSize(new java.awt.Dimension(570, 316));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**

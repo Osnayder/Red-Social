@@ -213,7 +213,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,7 +221,7 @@ public class Vs extends javax.swing.JFrame {
         );
 
         jPanel4.add(jPanel8);
-        jPanel8.setBounds(10, 11, 637, 250);
+        jPanel8.setBounds(10, 11, 720, 250);
         jPanel8.getAccessibleContext().setAccessibleName("");
 
         jButton8.setText("Nueva Publicación");
@@ -239,7 +239,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +247,7 @@ public class Vs extends javax.swing.JFrame {
         );
 
         jPanel6.add(jPanel9);
-        jPanel9.setBounds(11, 11, 620, 110);
+        jPanel9.setBounds(11, 11, 720, 110);
 
         jButton9.setText("Enviar Solicitud");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +265,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
+            .addGap(0, 708, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,7 +273,7 @@ public class Vs extends javax.swing.JFrame {
         );
 
         jPanel6.add(jPanel10);
-        jPanel10.setBounds(10, 130, 620, 120);
+        jPanel10.setBounds(10, 130, 720, 120);
 
         jTabbedPane1.addTab("Gestionar Amigos", jPanel6);
 
@@ -286,7 +286,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 633, Short.MAX_VALUE)
+            .addGap(0, 698, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +294,7 @@ public class Vs extends javax.swing.JFrame {
         );
 
         jPanel5.add(jPanel7);
-        jPanel7.setBounds(10, 11, 645, 250);
+        jPanel7.setBounds(10, 11, 710, 250);
 
         jButton5.setText("Enviar Mensaje");
         jPanel5.add(jButton5);
