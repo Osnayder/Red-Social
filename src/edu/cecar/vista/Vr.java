@@ -214,7 +214,7 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cargarImagen);
-        cargarImagen.setBounds(460, 230, 110, 30);
+        cargarImagen.setBounds(420, 230, 110, 30);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WhatsApp", "Facebook", "Instagram", "Twiter" }));
         getContentPane().add(jComboBox1);
@@ -254,11 +254,11 @@ public class Vr extends javax.swing.JFrame {
 
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(630, 230, 190, 30);
+        jLabel15.setBounds(480, 300, 360, 30);
 
         jLabel16.setText("Ruta:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(590, 230, 27, 30);
+        jLabel16.setBounds(440, 300, 40, 30);
 
         jButton2.setText("Ver Imagen");
         getContentPane().add(jButton2);
