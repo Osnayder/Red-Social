@@ -27,26 +27,23 @@ public class Usuario {
     private String nombres;
     private String apellidos;
     private Date fechanacimiento;
+    private byte[] foto;
     private String direccion;
     private ArrayList celular;
     private ArrayList telefonos;
-    private String otrasredes;
+    private ArrayList otrasredes;
     private Date ulitmaconexion;
     private boolean estadoconexion;
     private String departamento;
     private String descripcion;
     private String contrasena;
-    
 
-    public Usuario() {
-    
-    }
-
-    public Usuario(int idUsuario, String nombres, String apellidos, Date fechanacimiento, String direccion, ArrayList celular, ArrayList telefonos, String otrasredes, Date ulitmaconexion, boolean estadoconexion, String departamento, String descripcion, String contrasena) {
+    public Usuario(int idUsuario, String nombres, String apellidos, Date fechanacimiento, byte[] foto, String direccion, ArrayList celular, ArrayList telefonos, ArrayList otrasredes, Date ulitmaconexion, boolean estadoconexion, String departamento, String descripcion, String contrasena) {
         this.idUsuario = idUsuario;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.fechanacimiento = fechanacimiento;
+        this.foto = foto;
         this.direccion = direccion;
         this.celular = celular;
         this.telefonos = telefonos;
@@ -57,6 +54,6 @@ public class Usuario {
         this.descripcion = descripcion;
         this.contrasena = contrasena;
     }
-
-   
+    
+    
 }
