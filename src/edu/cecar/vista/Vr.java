@@ -5,6 +5,7 @@
  */
 package edu.cecar.vista;
 
+import edu.cecar.controlador.Cliente;
 import edu.cecar.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,9 +19,8 @@ import javafx.stage.FileChooser;
  */
 public class Vr extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Vr
-     */
+    Usuario usuario = null;
+    
     public Vr() {
         initComponents();
     }
@@ -220,19 +220,23 @@ public class Vr extends javax.swing.JFrame {
     }//GEN-LAST:event_cedulaActionPerformed
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        
+        //verfificarContrasena();        
         leerCampos();
+        
+        // se envia la infromacion al servidor.
+        Cliente cliente = new Cliente("192.168.0.1",17000);
+        cliente.enviar(usuario);
         
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
       javax.swing.JFileChooser a = new javax.swing.JFileChooser();
-     a.showDialog(null,"as");
+      a.showDialog(this,"Seleccionar");
       
       
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private boolean verficarContraseña(){
+    private boolean verficarContrasena(){
        return (contrasena.getText().equals(repitacontrasena.getText()));
     }
     
@@ -247,11 +251,13 @@ public class Vr extends javax.swing.JFrame {
         
         
         System.out.println("fecha: "+fechaNacimiento);
-        Usuario usuario = new Usuario(Integer.parseInt(cedula.getText()),nombres.getText(),apellidos.getText(),fechaNacimiento,
+        usuario = new Usuario(Integer.parseInt(cedula.getText()),nombres.getText(),apellidos.getText(),fechaNacimiento,
                                direccion.getText(),celulares,telefonos,"facebook",fechaHoy,true,departamentos.getItemAt(1),
                                descripcion.getText(),contrasena.getText());
         
     }
+    
+    
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
