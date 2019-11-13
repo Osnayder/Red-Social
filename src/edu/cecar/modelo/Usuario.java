@@ -26,9 +26,9 @@ public class Usuario implements Serializable{
     private Date fechanacimiento;
     private byte[] foto;
     private String direccion;
-    private ArrayList celular;
-    private ArrayList telefonos;
-    private ArrayList otrasredes;
+    private ArrayList<Long> celular;
+    private ArrayList<Long> telefonos;
+    private ArrayList<String> otrasredes;
     private Date ulitmaconexion;
     private boolean estadoconexion;
     private String departamento;

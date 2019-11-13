@@ -70,7 +70,7 @@ public class Vr extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         cargarImagen = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField1 = new javax.swing.JTextField();
+        redes = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -225,8 +225,8 @@ public class Vr extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WhatsApp", "Facebook", "Instagram", "Twiter" }));
         getContentPane().add(jComboBox1);
         jComboBox1.setBounds(550, 170, 140, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(700, 170, 150, 30);
+        getContentPane().add(redes);
+        redes.setBounds(700, 170, 150, 30);
 
         jButton4.setText("Agregar Otro");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -350,13 +350,13 @@ public class Vr extends javax.swing.JFrame {
         Calendar fechaSistema = new GregorianCalendar();
         java.sql.Date fechaHoy = new java.sql.Date(fechaSistema.getTimeInMillis());
         
-        arrayTelefonos = new ArrayList();
-        arrayCelulares = new ArrayList();
-        arrayRedes = new ArrayList();
+        arrayTelefonos = new ArrayList<Long>();
+        arrayCelulares = new ArrayList<Long>();
+        arrayRedes = new ArrayList<Long>();
         
-        arrayTelefonos.add(telefono.getText());
-        arrayCelulares.add(celular.getText());
-        arrayRedes.add(jTextField1.getText());
+        arrayTelefonos.add(Long.parseLong(telefono.getText()));
+        arrayCelulares.add(Long.parseLong(celular.getText()));
+        arrayRedes.add(redes.getText());
         
         usuario = new Usuario(Integer.parseInt(cedula.getText()),nombres.getText(),apellidos.getText(),fechaNacimiento,
                               archivoFoto,direccion.getText(),arrayCelulares,arrayTelefonos,arrayRedes,
@@ -366,7 +366,7 @@ public class Vr extends javax.swing.JFrame {
     }
     
     private void enviarServidor(Object objecto){
-        Archivo archivoEnvio = new Archivo("Subida",15,objecto);
+        Archivo archivoEnvio = new Archivo("Subida",1,objecto);
         Cliente cliente = new Cliente("0.0.0.0",17000, archivoEnvio);
     }
     
@@ -442,8 +442,8 @@ public class Vr extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nombres;
+    private javax.swing.JTextField redes;
     private javax.swing.JPasswordField repitacontrasena;
     private javax.swing.JTextField telefono;
     // End of variables declaration//GEN-END:variables

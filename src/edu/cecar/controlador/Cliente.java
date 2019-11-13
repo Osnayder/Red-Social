@@ -25,4 +25,7 @@ public class Cliente {
         
          }
 
+        public static void enviar(Object objectoEnviar){
+            
+        }
 }

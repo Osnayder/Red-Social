@@ -83,12 +83,12 @@ public class Vs extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton1.setText("Perfil");
         jPanel1.add(jButton1);
-        jButton1.setBounds(20, 110, 128, 37);
+        jButton1.setBounds(20, 120, 128, 37);
 
         jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton2.setText("Publicaciones");
         jPanel1.add(jButton2);
-        jButton2.setBounds(20, 160, 128, 39);
+        jButton2.setBounds(20, 170, 128, 39);
 
         jButton3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton3.setText("Chat");
@@ -98,22 +98,22 @@ public class Vs extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(20, 210, 128, 36);
+        jButton3.setBounds(20, 230, 128, 36);
 
         jButton4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton4.setText("Amigos");
         jPanel1.add(jButton4);
-        jButton4.setBounds(20, 260, 128, 34);
+        jButton4.setBounds(20, 290, 128, 34);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 160, 400);
+        jPanel1.setBounds(0, 0, 160, 520);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
         jPanel2.add(jSeparator1);
         jSeparator1.setBounds(0, 52, 815, 10);
         jPanel2.add(jSeparator2);
-        jSeparator2.setBounds(0, 10, 750, 10);
+        jSeparator2.setBounds(0, 10, 820, 10);
 
         jLabel1.setText("Usuario: ");
         jPanel2.add(jLabel1);
@@ -128,7 +128,7 @@ public class Vs extends javax.swing.JFrame {
         jButton6.setBounds(630, 20, 110, 30);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(160, 0, 750, 60);
+        jPanel2.setBounds(160, 0, 840, 60);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -310,9 +310,9 @@ public class Vs extends javax.swing.JFrame {
         jTabbedPane1.addTab("Chat", jPanel5);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(160, 60, 740, 340);
+        jTabbedPane1.setBounds(160, 60, 830, 450);
 
-        setSize(new java.awt.Dimension(922, 443));
+        setSize(new java.awt.Dimension(1016, 555));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 

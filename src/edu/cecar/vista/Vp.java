@@ -28,24 +28,34 @@ public class Vp extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        botonInicarSesion = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        contrasenaSesion = new javax.swing.JPasswordField();
+        usuarioSesion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RESOC");
         getContentPane().setLayout(null);
 
         jButton1.setText("Registro");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(120, 220, 100, 30);
 
-        jButton2.setText("Iniciar Sesión");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(320, 220, 110, 30);
+        botonInicarSesion.setText("Iniciar Sesión");
+        botonInicarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonInicarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(botonInicarSesion);
+        botonInicarSesion.setBounds(320, 220, 110, 30);
 
         jLabel1.setText("Inicio de Sesión");
         getContentPane().add(jLabel1);
@@ -58,15 +68,26 @@ public class Vp extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(106, 160, 70, 30);
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(200, 160, 180, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(200, 110, 180, 30);
+        getContentPane().add(contrasenaSesion);
+        contrasenaSesion.setBounds(200, 160, 180, 30);
+        getContentPane().add(usuarioSesion);
+        usuarioSesion.setBounds(200, 110, 180, 30);
 
         setSize(new java.awt.Dimension(570, 316));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        new Vr().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void botonInicarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonInicarSesionActionPerformed
+       
+    }//GEN-LAST:event_botonInicarSesionActionPerformed
+
+    private boolean verificarUsuario(){
+        return true;
+    }
     /**
      * @param args the command line arguments
      */
@@ -103,12 +124,12 @@ public class Vp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonInicarSesion;
+    private javax.swing.JPasswordField contrasenaSesion;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField usuarioSesion;
     // End of variables declaration//GEN-END:variables
 }
