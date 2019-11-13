@@ -42,9 +42,6 @@ public class Vr extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        whatsapp = new javax.swing.JCheckBox();
-        facebook = new javax.swing.JCheckBox();
-        instagram = new javax.swing.JCheckBox();
         repitacontrasena = new javax.swing.JPasswordField();
         contrasena = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
@@ -64,9 +61,11 @@ public class Vr extends javax.swing.JFrame {
         descripcion = new javax.swing.JTextArea();
         fechanacimineto = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Rgistro de Usuario");
@@ -102,19 +101,7 @@ public class Vr extends javax.swing.JFrame {
 
         jLabel8.setText("Otras Redes:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(480, 230, 80, 30);
-
-        whatsapp.setText("WhatsApp");
-        getContentPane().add(whatsapp);
-        whatsapp.setBounds(560, 230, 90, 23);
-
-        facebook.setText("Facebook");
-        getContentPane().add(facebook);
-        facebook.setBounds(650, 230, 80, 23);
-
-        instagram.setText("Instagram");
-        getContentPane().add(instagram);
-        instagram.setBounds(560, 250, 90, 23);
+        jLabel8.setBounds(330, 120, 70, 30);
 
         repitacontrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -182,17 +169,13 @@ public class Vr extends javax.swing.JFrame {
         jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(420, 30, 320, 70);
+        jScrollPane1.setBounds(400, 30, 370, 70);
         getContentPane().add(fechanacimineto);
         fechanacimineto.setBounds(110, 170, 180, 30);
 
         jLabel4.setText("Descripcion:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(340, 30, 70, 30);
-
-        jCheckBox1.setText("Twiter");
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(650, 250, 81, 23);
+        jLabel4.setBounds(330, 30, 70, 30);
 
         jButton1.setText("Agregar Otro");
         getContentPane().add(jButton1);
@@ -205,9 +188,19 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(420, 120, 130, 23);
+        jButton2.setBounds(440, 180, 130, 23);
 
-        setSize(new java.awt.Dimension(784, 466));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WhatsApp", "Facebook", "Instagram", "Twiter" }));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(400, 120, 100, 30);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(510, 120, 150, 30);
+
+        jButton4.setText("Agregar Otro");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(670, 120, 100, 30);
+
+        setSize(new java.awt.Dimension(795, 466));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -302,13 +295,12 @@ public class Vr extends javax.swing.JFrame {
     private javax.swing.JTextArea descripcion;
     private javax.swing.JTextField direccion;
     private javax.swing.JLabel f;
-    private javax.swing.JCheckBox facebook;
     private com.toedter.calendar.JDateChooser fechanacimineto;
-    private javax.swing.JCheckBox instagram;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -321,9 +313,9 @@ public class Vr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField nombres;
     private javax.swing.JPasswordField repitacontrasena;
     private javax.swing.JTextField telefono;
-    private javax.swing.JCheckBox whatsapp;
     // End of variables declaration//GEN-END:variables
 }
