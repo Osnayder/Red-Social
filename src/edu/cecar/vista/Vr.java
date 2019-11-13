@@ -224,8 +224,8 @@ public class Vr extends javax.swing.JFrame {
         leerCampos();
         
         // se envia la infromacion al servidor.
-        Cliente cliente = new Cliente("192.168.0.1",17000);
-        cliente.enviar(usuario);
+        //Cliente cliente = new Cliente("192.168.0.1",17000);
+        //cliente.enviar(usuario);
         
     }//GEN-LAST:event_botonAgregarActionPerformed
 
