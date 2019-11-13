@@ -5,6 +5,13 @@
  */
 package edu.cecar.vista;
 
+import edu.cecar.modelo.Usuario;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import javafx.stage.FileChooser;
+
 /**
  *
  * @author osnayder
@@ -30,29 +37,36 @@ public class Vr extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        f = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        whatsapp = new javax.swing.JCheckBox();
+        facebook = new javax.swing.JCheckBox();
+        instagram = new javax.swing.JCheckBox();
+        repitacontrasena = new javax.swing.JPasswordField();
+        contrasena = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        botonCancelar = new javax.swing.JButton();
+        botonAgregar = new javax.swing.JButton();
+        cedula = new javax.swing.JTextField();
+        nombres = new javax.swing.JTextField();
+        apellidos = new javax.swing.JTextField();
+        direccion = new javax.swing.JTextField();
+        telefono = new javax.swing.JTextField();
+        celular = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        departamentos = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descripcion = new javax.swing.JTextArea();
+        fechanacimineto = new com.toedter.calendar.JDateChooser();
+        jLabel4 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Rgistro de Usuario");
@@ -60,117 +74,185 @@ public class Vr extends javax.swing.JFrame {
 
         jLabel1.setText("Numero Cedula:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 60, 98, 30);
+        jLabel1.setBounds(10, 30, 100, 30);
 
         jLabel2.setText("Nombres:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(46, 100, 60, 30);
+        jLabel2.setBounds(40, 70, 60, 30);
 
         jLabel3.setText("Apellidos:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(46, 140, 60, 30);
+        jLabel3.setBounds(30, 110, 60, 30);
 
-        jLabel4.setText("Edad:");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(58, 180, 40, 30);
+        f.setText("fecha Nacimiento:");
+        getContentPane().add(f);
+        f.setBounds(10, 170, 90, 30);
 
         jLabel5.setText("Dirreccion:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(31, 220, 70, 30);
+        jLabel5.setBounds(20, 210, 70, 30);
 
         jLabel6.setText("Tel:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(68, 260, 30, 30);
+        jLabel6.setBounds(50, 250, 30, 30);
 
         jLabel7.setText("Cel:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(370, 60, 30, 30);
+        jLabel7.setBounds(40, 290, 30, 30);
 
         jLabel8.setText("Otras Redes:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(330, 150, 80, 30);
+        jLabel8.setBounds(480, 230, 80, 30);
 
-        jCheckBox1.setText("WhatsApp");
-        getContentPane().add(jCheckBox1);
-        jCheckBox1.setBounds(410, 150, 90, 23);
+        whatsapp.setText("WhatsApp");
+        getContentPane().add(whatsapp);
+        whatsapp.setBounds(560, 230, 90, 23);
 
-        jCheckBox2.setText("Facebook");
-        getContentPane().add(jCheckBox2);
-        jCheckBox2.setBounds(500, 150, 90, 23);
+        facebook.setText("Facebook");
+        getContentPane().add(facebook);
+        facebook.setBounds(650, 230, 80, 23);
 
-        jCheckBox3.setText("Instagram");
-        getContentPane().add(jCheckBox3);
-        jCheckBox3.setBounds(410, 170, 90, 23);
+        instagram.setText("Instagram");
+        getContentPane().add(instagram);
+        instagram.setBounds(560, 250, 90, 23);
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        repitacontrasena.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                repitacontrasenaActionPerformed(evt);
             }
         });
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(410, 240, 150, 30);
-        getContentPane().add(jPasswordField2);
-        jPasswordField2.setBounds(410, 200, 150, 30);
+        getContentPane().add(repitacontrasena);
+        repitacontrasena.setBounds(560, 330, 150, 30);
+        getContentPane().add(contrasena);
+        contrasena.setBounds(560, 290, 150, 30);
 
         jLabel9.setText("Contraseña:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(330, 200, 70, 30);
+        jLabel9.setBounds(480, 290, 70, 30);
 
         jLabel10.setText("Repita Contraseña");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(300, 240, 110, 30);
+        jLabel10.setBounds(450, 330, 110, 30);
 
-        jButton1.setText("Cancelar");
-        getContentPane().add(jButton1);
-        jButton1.setBounds(160, 310, 90, 30);
+        botonCancelar.setText("Cancelar");
+        getContentPane().add(botonCancelar);
+        botonCancelar.setBounds(490, 390, 90, 30);
 
-        jButton2.setText("Registrar");
-        getContentPane().add(jButton2);
-        jButton2.setBounds(380, 310, 90, 30);
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        botonAgregar.setText("Registrar");
+        botonAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                botonAgregarActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(130, 60, 150, 30);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(130, 100, 150, 30);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(130, 140, 150, 30);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(130, 180, 150, 30);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(130, 220, 150, 30);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(130, 260, 150, 30);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(410, 60, 150, 30);
+        getContentPane().add(botonAgregar);
+        botonAgregar.setBounds(620, 390, 90, 30);
+
+        cedula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cedulaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(cedula);
+        cedula.setBounds(110, 30, 180, 30);
+        getContentPane().add(nombres);
+        nombres.setBounds(110, 70, 180, 30);
+        getContentPane().add(apellidos);
+        apellidos.setBounds(110, 110, 180, 30);
+        getContentPane().add(direccion);
+        direccion.setBounds(110, 210, 170, 30);
+        getContentPane().add(telefono);
+        telefono.setBounds(110, 250, 170, 30);
+        getContentPane().add(celular);
+        celular.setBounds(110, 290, 170, 30);
 
         jLabel11.setText("Departamento:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(320, 100, 80, 30);
+        jLabel11.setBounds(20, 330, 80, 30);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas", "Accesoria", " " }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(410, 100, 150, 30);
+        departamentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas", "Accesoria", " " }));
+        getContentPane().add(departamentos);
+        departamentos.setBounds(110, 330, 170, 30);
 
-        setSize(new java.awt.Dimension(617, 385));
+        jButton3.setText("Agregar Otro");
+        getContentPane().add(jButton3);
+        jButton3.setBounds(290, 250, 100, 30);
+
+        descripcion.setColumns(20);
+        descripcion.setRows(5);
+        jScrollPane1.setViewportView(descripcion);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(420, 30, 320, 70);
+        getContentPane().add(fechanacimineto);
+        fechanacimineto.setBounds(110, 170, 180, 30);
+
+        jLabel4.setText("Descripcion:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(340, 30, 70, 30);
+
+        jCheckBox1.setText("Twiter");
+        getContentPane().add(jCheckBox1);
+        jCheckBox1.setBounds(650, 250, 81, 23);
+
+        jButton1.setText("Agregar Otro");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(290, 290, 100, 30);
+
+        jButton2.setText("Imagen de Perfil");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(420, 120, 130, 23);
+
+        setSize(new java.awt.Dimension(784, 466));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void repitacontrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repitacontrasenaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_repitacontrasenaActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cedulaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
+        
+        leerCampos();
+        
+    }//GEN-LAST:event_botonAgregarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      javax.swing.JFileChooser a = new javax.swing.JFileChooser();
+     a.showDialog(null,"as");
+      
+      
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private boolean verficarContraseña(){
+       return (contrasena.getText().equals(repitacontrasena.getText()));
+    }
+    
+    private void leerCampos(){
+        java.sql.Date fechaNacimiento = new java.sql.Date(fechanacimineto.getDate().getTime());
+        
+        Calendar fechaSistema = new GregorianCalendar();
+        java.sql.Date fechaHoy = new java.sql.Date(fechaSistema.getTimeInMillis());
+        
+        ArrayList telefonos = null;
+        ArrayList celulares = null;
+        
+        
+        System.out.println("fecha: "+fechaNacimiento);
+        Usuario usuario = new Usuario(Integer.parseInt(cedula.getText()),nombres.getText(),apellidos.getText(),fechaNacimiento,
+                               direccion.getText(),celulares,telefonos,"facebook",fechaHoy,true,departamentos.getItemAt(1),
+                               descripcion.getText(),contrasena.getText());
+        
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -204,12 +286,23 @@ public class Vr extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellidos;
+    private javax.swing.JButton botonAgregar;
+    private javax.swing.JButton botonCancelar;
+    private javax.swing.JTextField cedula;
+    private javax.swing.JTextField celular;
+    private javax.swing.JPasswordField contrasena;
+    private javax.swing.JComboBox<String> departamentos;
+    private javax.swing.JTextArea descripcion;
+    private javax.swing.JTextField direccion;
+    private javax.swing.JLabel f;
+    private javax.swing.JCheckBox facebook;
+    private com.toedter.calendar.JDateChooser fechanacimineto;
+    private javax.swing.JCheckBox instagram;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -221,14 +314,10 @@ public class Vr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField nombres;
+    private javax.swing.JPasswordField repitacontrasena;
+    private javax.swing.JTextField telefono;
+    private javax.swing.JCheckBox whatsapp;
     // End of variables declaration//GEN-END:variables
 }
