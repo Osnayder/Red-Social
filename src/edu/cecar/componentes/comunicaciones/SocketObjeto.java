@@ -1,4 +1,4 @@
-package edu.cecar.comunicaciones;
+package edu.cecar.componentes.comunicaciones;
 
 import java.net.*;
 import java.io.*;

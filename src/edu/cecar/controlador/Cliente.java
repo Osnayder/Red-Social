@@ -1,7 +1,7 @@
 package edu.cecar.controlador;
 
 
-import edu.cecar.comunicaciones.SocketObjeto;
+import edu.cecar.componentes.comunicaciones.SocketObjeto;
 import edu.cecar.modelo.Archivo;
 import java.io.IOException;
 import java.util.logging.Level;
