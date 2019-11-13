@@ -71,6 +71,8 @@ public class Vr extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Rgistro de Usuario");
@@ -223,6 +225,14 @@ public class Vr extends javax.swing.JFrame {
         getContentPane().add(jScrollPane3);
         jScrollPane3.setBounds(240, 390, 200, 60);
 
+        jLabel13.setText("Telefonos Agregados");
+        getContentPane().add(jLabel13);
+        jLabel13.setBounds(30, 370, 130, 14);
+
+        jLabel14.setText("Celulares Agregados");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(250, 370, 120, 14);
+
         setSize(new java.awt.Dimension(901, 509));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -328,6 +338,8 @@ public class Vr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
