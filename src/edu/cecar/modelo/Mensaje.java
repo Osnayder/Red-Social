@@ -6,6 +6,7 @@
 
 package edu.cecar.modelo;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.Date;
 
@@ -22,7 +23,9 @@ import java.util.Date;
  * Copyrigth: CECAR
  */
 
-public class Mensaje {
+public class Mensaje implements Serializable{
+    
+    private static final long serialVersionUID = 1000L;
     int id;
     byte[] cuerpo;
     Date fecha;

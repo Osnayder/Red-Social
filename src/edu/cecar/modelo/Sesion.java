@@ -6,6 +6,7 @@
 
 package edu.cecar.modelo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /** Clase: 
@@ -21,7 +22,9 @@ import java.util.Date;
  * Copyrigth: CECAR
  */
 
-public class Sesion {
+public class Sesion implements Serializable{
+    
+    private static final long serialVersionUID = 1000L;
     int idUsuario;
     Date ultimaConexion;
     boolean estado;

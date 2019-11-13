@@ -1,11 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package edu.cecar.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -22,7 +17,9 @@ import java.util.Date;
  * Copyrigth: CECAR
  */
 
-public class Usuario {
+public class Usuario implements Serializable{
+    
+    private static final long serialVersionUID = 1000L;
     private int idUsuario;
     private String nombres;
     private String apellidos;

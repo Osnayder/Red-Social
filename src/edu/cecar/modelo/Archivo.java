@@ -33,6 +33,29 @@ public class Archivo implements Serializable{
         this.OperacionEnvio = OperacionEnvio;
         this.operacionInterna = operacionInterna;
     }
-	
     
+    public Object getObjecto() {
+        return objecto;
+    }
+
+    public void setObjecto(Object objecto) {
+        this.objecto = objecto;
+    }
+
+    public String getOperacionEnvio() {
+        return OperacionEnvio;
+    }
+
+    public void setOperacionEnvio(String OperacionEnvio) {
+        this.OperacionEnvio = OperacionEnvio;
+    }
+
+    public int getOperacionInterna() {
+        return operacionInterna;
+    }
+
+    public void setOperacionInterna(int operacionInterna) {
+        this.operacionInterna = operacionInterna;
+    }
+ 
 }

@@ -6,6 +6,8 @@
 
 package edu.cecar.modelo;
 
+import java.io.Serializable;
+
 /** Clase: 
  * 
  * @version: 1.0
@@ -19,6 +21,7 @@ package edu.cecar.modelo;
  * Copyrigth: CECAR
  */
 
-public class Conversacion {
-
+public class Conversacion implements Serializable{
+    
+    private static final long serialVersionUID = 1000L;
 }

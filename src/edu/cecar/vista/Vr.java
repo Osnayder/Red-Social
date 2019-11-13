@@ -2,7 +2,9 @@ package edu.cecar.vista;
 
 import edu.cecar.componentes.Utilidades;
 import edu.cecar.controlador.Cliente;
+import edu.cecar.modelo.Archivo;
 import edu.cecar.modelo.Usuario;
+import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -23,9 +25,11 @@ public class Vr extends javax.swing.JFrame {
     ArrayList arrayTelefonos = null;
     ArrayList arrayCelulares = null;
     ArrayList arrayRedes = null;
+    ArrayList cuentas = null;
     
     public Vr() {
         initComponents();
+        this.getRootPane().getContentPane().setBackground(Color.WHITE);
         
         nombres.setToolTipText("Introduce nombre usuario");
         fechanacimineto.setDate(new Date());
@@ -83,53 +87,69 @@ public class Vr extends javax.swing.JFrame {
         setTitle("Rgistro de Usuario");
         getContentPane().setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel1.setText("Numero Cedula:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(10, 30, 100, 30);
+        jLabel1.setBounds(10, 30, 120, 30);
 
+        jLabel2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel2.setText("Nombres:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(40, 70, 60, 30);
+        jLabel2.setBounds(50, 70, 80, 30);
 
+        jLabel3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel3.setText("Apellidos:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(40, 110, 60, 30);
+        jLabel3.setBounds(50, 110, 80, 30);
 
+        f.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         f.setText("Fecha Nacimiento:");
         getContentPane().add(f);
-        f.setBounds(10, 170, 90, 30);
+        f.setBounds(10, 170, 140, 30);
 
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel5.setText("Dirreccion:");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(40, 210, 70, 30);
+        jLabel5.setBounds(60, 210, 90, 30);
 
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel6.setText("Tel:");
         getContentPane().add(jLabel6);
-        jLabel6.setBounds(70, 250, 30, 30);
+        jLabel6.setBounds(100, 250, 50, 30);
 
+        jLabel7.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel7.setText("Cel:");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(70, 290, 30, 30);
+        jLabel7.setBounds(100, 290, 50, 30);
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel8.setText("Otras Redes:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(390, 170, 70, 30);
-        getContentPane().add(repitacontrasena);
-        repitacontrasena.setBounds(670, 380, 150, 30);
-        getContentPane().add(contrasena);
-        contrasena.setBounds(670, 340, 150, 30);
+        jLabel8.setBounds(450, 170, 100, 30);
 
+        repitacontrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repitacontrasenaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(repitacontrasena);
+        repitacontrasena.setBounds(730, 370, 230, 30);
+        getContentPane().add(contrasena);
+        contrasena.setBounds(730, 330, 230, 30);
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel9.setText("Contraseña:");
         getContentPane().add(jLabel9);
-        jLabel9.setBounds(590, 340, 70, 30);
+        jLabel9.setBounds(620, 330, 90, 30);
 
-        jLabel10.setText("Repita Contraseña");
+        jLabel10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel10.setText("Repita Contraseña:");
         getContentPane().add(jLabel10);
-        jLabel10.setBounds(550, 380, 110, 30);
+        jLabel10.setBounds(570, 370, 150, 30);
 
         botonCancelar.setText("Cancelar");
         getContentPane().add(botonCancelar);
-        botonCancelar.setBounds(630, 420, 90, 30);
+        botonCancelar.setBounds(640, 420, 90, 30);
 
         botonAgregar.setText("Registrar");
         botonAgregar.addActionListener(new java.awt.event.ActionListener() {
@@ -138,27 +158,28 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonAgregar);
-        botonAgregar.setBounds(750, 420, 90, 30);
+        botonAgregar.setBounds(740, 420, 90, 30);
         getContentPane().add(cedula);
-        cedula.setBounds(110, 30, 220, 30);
+        cedula.setBounds(130, 30, 220, 30);
         getContentPane().add(nombres);
-        nombres.setBounds(110, 70, 220, 30);
+        nombres.setBounds(130, 70, 220, 30);
         getContentPane().add(apellidos);
-        apellidos.setBounds(110, 110, 220, 30);
+        apellidos.setBounds(130, 110, 220, 30);
         getContentPane().add(direccion);
-        direccion.setBounds(110, 210, 170, 30);
+        direccion.setBounds(150, 210, 170, 30);
         getContentPane().add(telefono);
-        telefono.setBounds(110, 250, 170, 30);
+        telefono.setBounds(150, 250, 170, 30);
         getContentPane().add(celular);
-        celular.setBounds(110, 290, 170, 30);
+        celular.setBounds(150, 290, 170, 30);
 
+        jLabel11.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel11.setText("Departamento:");
         getContentPane().add(jLabel11);
-        jLabel11.setBounds(20, 330, 80, 30);
+        jLabel11.setBounds(30, 330, 100, 30);
 
         departamentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ventas", "Accesoria", " " }));
         getContentPane().add(departamentos);
-        departamentos.setBounds(110, 330, 170, 30);
+        departamentos.setBounds(150, 330, 170, 30);
 
         jButton3.setText("Agregar Otro");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -167,20 +188,21 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(290, 250, 100, 30);
+        jButton3.setBounds(330, 250, 100, 30);
 
         descripcion.setColumns(20);
         descripcion.setRows(5);
         jScrollPane1.setViewportView(descripcion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(460, 30, 370, 110);
+        jScrollPane1.setBounds(550, 30, 410, 110);
         getContentPane().add(fechanacimineto);
-        fechanacimineto.setBounds(110, 170, 170, 30);
+        fechanacimineto.setBounds(150, 170, 170, 30);
 
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel4.setText("Descripcion:");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(390, 30, 70, 30);
+        jLabel4.setBounds(440, 30, 100, 30);
 
         jButton1.setText("Agregar Otro");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -189,7 +211,7 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(290, 290, 100, 30);
+        jButton1.setBounds(330, 290, 100, 30);
 
         cargarImagen.setText("Agregar Imagen");
         cargarImagen.addActionListener(new java.awt.event.ActionListener() {
@@ -198,67 +220,75 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(cargarImagen);
-        cargarImagen.setBounds(420, 230, 110, 30);
+        cargarImagen.setBounds(550, 230, 120, 30);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WhatsApp", "Facebook", "Instagram", "Twiter" }));
         getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(460, 170, 100, 30);
+        jComboBox1.setBounds(550, 170, 140, 30);
         getContentPane().add(jTextField1);
-        jTextField1.setBounds(570, 170, 150, 30);
+        jTextField1.setBounds(700, 170, 150, 30);
 
         jButton4.setText("Agregar Otro");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4);
-        jButton4.setBounds(730, 170, 100, 30);
+        jButton4.setBounds(860, 170, 100, 30);
 
+        jLabel12.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel12.setText("Nombre cuenta");
         getContentPane().add(jLabel12);
-        jLabel12.setBounds(600, 150, 90, 20);
+        jLabel12.setBounds(720, 150, 120, 20);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setTabSize(0);
         jScrollPane2.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(20, 390, 200, 60);
+        jScrollPane2.setBounds(10, 400, 220, 50);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane3.setViewportView(jTextArea2);
 
         getContentPane().add(jScrollPane3);
-        jScrollPane3.setBounds(240, 390, 200, 60);
+        jScrollPane3.setBounds(260, 400, 220, 50);
 
+        jLabel13.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel13.setText("Telefonos Agregados");
         getContentPane().add(jLabel13);
-        jLabel13.setBounds(30, 370, 130, 14);
+        jLabel13.setBounds(30, 370, 160, 16);
 
+        jLabel14.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel14.setText("Celulares Agregados");
         getContentPane().add(jLabel14);
-        jLabel14.setBounds(250, 370, 120, 14);
+        jLabel14.setBounds(250, 370, 170, 16);
 
         jLabel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jLabel15);
-        jLabel15.setBounds(480, 300, 360, 30);
+        jLabel15.setBounds(750, 230, 210, 30);
 
-        jLabel16.setText("Ruta:");
+        jLabel16.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel16.setText("Nombre:");
         getContentPane().add(jLabel16);
-        jLabel16.setBounds(440, 300, 40, 30);
+        jLabel16.setBounds(680, 230, 60, 30);
 
         jButton2.setText("Ver Imagen");
         getContentPane().add(jButton2);
-        jButton2.setBounds(630, 270, 190, 30);
+        jButton2.setBounds(750, 270, 210, 30);
 
-        setSize(new java.awt.Dimension(901, 509));
+        setSize(new java.awt.Dimension(1003, 509));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
         
-        System.out.println(fechanacimineto.getDate().equals(""));
         if(verficarContrasena() && verificarCampos()){
             cargarCampos();
-            //Cliente cliente = new Cliente("192.168.0.1",17000);
-            //cliente.enviar(usuario);
+            enviarServidor(usuario);
         }        
 
     }//GEN-LAST:event_botonAgregarActionPerformed
@@ -278,9 +308,8 @@ public class Vr extends javax.swing.JFrame {
       
         if(ventana==JFileChooser.APPROVE_OPTION){
             try {
-                jLabel15.setText(String.valueOf(fileChooser.getSelectedFile()));
+                jLabel15.setText(fileChooser.getSelectedFile().getName());
                 archivoFoto = Utilidades.getBytes(String.valueOf(fileChooser.getSelectedFile()));
-                Utilidades.escribirAchivo("D:\\jj.png", archivoFoto);
                 JOptionPane.showMessageDialog(this,"En hora buena! Se Cargo la Imagen",
                                             "Archivo",JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
@@ -300,6 +329,14 @@ public class Vr extends javax.swing.JFrame {
        arrayCelulares.add(celular.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void repitacontrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repitacontrasenaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_repitacontrasenaActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       arrayRedes.add(jComboBox1.getSelectedItem());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     private boolean verficarContrasena(){
        return (contrasena.getText().equals(repitacontrasena.getText()) && !contrasena.getText().equals(""));
     }
@@ -313,6 +350,10 @@ public class Vr extends javax.swing.JFrame {
         Calendar fechaSistema = new GregorianCalendar();
         java.sql.Date fechaHoy = new java.sql.Date(fechaSistema.getTimeInMillis());
         
+        arrayTelefonos = new ArrayList();
+        arrayCelulares = new ArrayList();
+        arrayRedes = new ArrayList();
+        
         arrayTelefonos.add(telefono.getText());
         arrayCelulares.add(celular.getText());
         arrayRedes.add(jTextField1.getText());
@@ -322,9 +363,12 @@ public class Vr extends javax.swing.JFrame {
                               fechaHoy,true,(String)departamentos.getSelectedItem(),
                               descripcion.getText(),contrasena.getText());
         
-        
     }
     
+    private void enviarServidor(Object objecto){
+        Archivo archivoEnvio = new Archivo("Subida",15,objecto);
+        Cliente cliente = new Cliente("0.0.0.0",17000, archivoEnvio);
+    }
     
     
     public static void main(String args[]) {
