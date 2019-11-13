@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.cecar.vista;
 
 import edu.cecar.componentes.Utilidades;
@@ -13,9 +8,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.stage.FileChooser;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -34,6 +26,10 @@ public class Vr extends javax.swing.JFrame {
     
     public Vr() {
         initComponents();
+        
+        nombres.setToolTipText("Introduce nombre usuario");
+        fechanacimineto.setDate(new Date());
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -118,12 +114,6 @@ public class Vr extends javax.swing.JFrame {
         jLabel8.setText("Otras Redes:");
         getContentPane().add(jLabel8);
         jLabel8.setBounds(390, 170, 70, 30);
-
-        repitacontrasena.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                repitacontrasenaActionPerformed(evt);
-            }
-        });
         getContentPane().add(repitacontrasena);
         repitacontrasena.setBounds(670, 380, 150, 30);
         getContentPane().add(contrasena);
@@ -149,12 +139,6 @@ public class Vr extends javax.swing.JFrame {
         });
         getContentPane().add(botonAgregar);
         botonAgregar.setBounds(750, 420, 90, 30);
-
-        cedula.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cedulaActionPerformed(evt);
-            }
-        });
         getContentPane().add(cedula);
         cedula.setBounds(110, 30, 220, 30);
         getContentPane().add(nombres);
@@ -268,23 +252,15 @@ public class Vr extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void repitacontrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repitacontrasenaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_repitacontrasenaActionPerformed
-
-    private void cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cedulaActionPerformed
-
     private void botonAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarActionPerformed
-        if(verficarContrasena()){
+        
+        System.out.println(fechanacimineto.getDate().equals(""));
+        if(verficarContrasena() && verificarCampos()){
             cargarCampos();
+            //Cliente cliente = new Cliente("192.168.0.1",17000);
+            //cliente.enviar(usuario);
         }        
 
-        // se envia la infromacion al servidor.
-        //Cliente cliente = new Cliente("192.168.0.1",17000);
-        //cliente.enviar(usuario);
-        
     }//GEN-LAST:event_botonAgregarActionPerformed
 
     private void cargarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarImagenActionPerformed
@@ -328,15 +304,24 @@ public class Vr extends javax.swing.JFrame {
        return (contrasena.getText().equals(repitacontrasena.getText()) && !contrasena.getText().equals(""));
     }
     
+    private boolean verificarCampos(){
+        return (!cedula.getText().equals("") && !nombres.getText().equals("") && !apellidos.getText().equals("")
+                && !fechanacimineto.getDate().equals("") && !direccion.getText().equals(""));
+    }
     private void cargarCampos(){
         java.sql.Date fechaNacimiento = new java.sql.Date(fechanacimineto.getDate().getTime());
         Calendar fechaSistema = new GregorianCalendar();
         java.sql.Date fechaHoy = new java.sql.Date(fechaSistema.getTimeInMillis());
         
+        arrayTelefonos.add(telefono.getText());
+        arrayCelulares.add(celular.getText());
+        arrayRedes.add(jTextField1.getText());
+        
         usuario = new Usuario(Integer.parseInt(cedula.getText()),nombres.getText(),apellidos.getText(),fechaNacimiento,
                               archivoFoto,direccion.getText(),arrayCelulares,arrayTelefonos,arrayRedes,
                               fechaHoy,true,(String)departamentos.getSelectedItem(),
                               descripcion.getText(),contrasena.getText());
+        
         
     }
     
