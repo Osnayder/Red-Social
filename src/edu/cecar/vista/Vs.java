@@ -5,6 +5,8 @@
  */
 package edu.cecar.vista;
 
+import java.awt.Color;
+
 /**
  *
  * @author osnayder
@@ -16,6 +18,7 @@ public class Vs extends javax.swing.JFrame {
      */
     public Vs() {
         initComponents();
+        this.getRootPane().getContentPane().setBackground(Color.WHITE);
     }
 
     /**
@@ -34,11 +37,20 @@ public class Vs extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
-        jSeparator2 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jButton8 = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -55,154 +67,86 @@ public class Vs extends javax.swing.JFrame {
         lApellidos = new javax.swing.JLabel();
         lTel = new javax.swing.JLabel();
         lCel = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jButton8 = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jButton9 = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jFileChooser1 = new javax.swing.JFileChooser();
-        jButton5 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Menu Navegación"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Menu Navegación", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 12))); // NOI18N
+        jPanel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jPanel1.setLayout(null);
 
+        jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton1.setText("Perfil");
+        jButton1.setText("PERFIL");
+        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1);
-        jButton1.setBounds(20, 120, 128, 37);
+        jButton1.setBounds(10, 120, 190, 37);
 
+        jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton2.setText("Publicaciones");
+        jButton2.setText("PUBLICACIONES");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         jPanel1.add(jButton2);
-        jButton2.setBounds(20, 170, 128, 39);
+        jButton2.setBounds(10, 179, 190, 40);
 
+        jButton3.setBackground(new java.awt.Color(204, 255, 255));
         jButton3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton3.setText("Chat");
+        jButton3.setText("CHAT");
+        jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(20, 230, 128, 36);
+        jButton3.setBounds(10, 300, 190, 40);
 
+        jButton4.setBackground(new java.awt.Color(204, 255, 255));
         jButton4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton4.setText("Amigos");
+        jButton4.setText("AMIGOS");
+        jButton4.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         jPanel1.add(jButton4);
-        jButton4.setBounds(20, 290, 128, 34);
+        jButton4.setBounds(10, 240, 190, 40);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 160, 520);
+        jPanel1.setBounds(0, 0, 210, 560);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
         jPanel2.add(jSeparator1);
-        jSeparator1.setBounds(0, 52, 815, 10);
-        jPanel2.add(jSeparator2);
-        jSeparator2.setBounds(0, 10, 820, 10);
+        jSeparator1.setBounds(40, 50, 980, 10);
 
         jLabel1.setText("Usuario: ");
         jPanel2.add(jLabel1);
-        jLabel1.setBounds(30, 20, 60, 30);
+        jLabel1.setBounds(50, 20, 60, 30);
 
         jLabel2.setText("Ultima Sesión:");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(340, 20, 80, 30);
+        jLabel2.setBounds(390, 20, 90, 30);
 
         jButton6.setText("Cerrar Sesión");
         jPanel2.add(jButton6);
-        jButton6.setBounds(630, 20, 110, 30);
+        jButton6.setBounds(900, 20, 110, 30);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(160, 0, 840, 60);
+        jPanel2.setBounds(210, 0, 1060, 60);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel3.setLayout(null);
-
-        jLabel3.setText("Foto");
-        jPanel3.add(jLabel3);
-        jLabel3.setBounds(276, 11, 50, 40);
-
-        jLabel4.setText("Nombres:");
-        jPanel3.add(jLabel4);
-        jLabel4.setBounds(30, 74, 60, 30);
-
-        jLabel5.setText("Apellidos:");
-        jPanel3.add(jLabel5);
-        jLabel5.setBounds(30, 120, 60, 30);
-
-        jLabel6.setText("Tel:");
-        jPanel3.add(jLabel6);
-        jLabel6.setBounds(60, 180, 30, 30);
-
-        jLabel7.setText("Cel:");
-        jPanel3.add(jLabel7);
-        jLabel7.setBounds(60, 230, 30, 40);
-
-        jButton7.setText("Editar Perfil");
-        jPanel3.add(jButton7);
-        jButton7.setBounds(270, 280, 120, 23);
-
-        jLabel8.setText("Descripción:");
-        jPanel3.add(jLabel8);
-        jLabel8.setBounds(530, 60, 90, 20);
-
-        jLabel9.setText("Edad:");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(340, 80, 28, 14);
-
-        jLabel10.setText("Dirección:");
-        jPanel3.add(jLabel10);
-        jLabel10.setBounds(320, 120, 60, 30);
-
-        jLabel11.setText("Departamento:");
-        jPanel3.add(jLabel11);
-        jLabel11.setBounds(300, 170, 90, 20);
-
-        jLabel12.setText("Otras Redes:");
-        jPanel3.add(jLabel12);
-        jLabel12.setBounds(310, 220, 80, 30);
-        jPanel3.add(lNombres);
-        lNombres.setBounds(100, 70, 150, 30);
-        jPanel3.add(lApellidos);
-        lApellidos.setBounds(110, 120, 130, 30);
-        jPanel3.add(lTel);
-        lTel.setBounds(110, 180, 140, 30);
-        jPanel3.add(lCel);
-        lCel.setBounds(110, 230, 140, 30);
-        jPanel3.add(jLabel13);
-        jLabel13.setBounds(400, 70, 70, 30);
-        jPanel3.add(jLabel14);
-        jLabel14.setBounds(400, 120, 100, 30);
-        jPanel3.add(jLabel15);
-        jLabel15.setBounds(400, 160, 120, 30);
-        jPanel3.add(jLabel16);
-        jLabel16.setBounds(400, 220, 100, 30);
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(600, 70, 120, 96);
-
-        jTabbedPane1.addTab("Gestionar Perfil", jPanel3);
-
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(null);
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -231,6 +175,7 @@ public class Vs extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Getionar Publicaciones", jPanel4);
 
+        jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setLayout(null);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -240,7 +185,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 618, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,7 +193,7 @@ public class Vs extends javax.swing.JFrame {
         );
 
         jPanel6.add(jPanel9);
-        jPanel9.setBounds(11, 11, 720, 110);
+        jPanel9.setBounds(11, 11, 630, 110);
 
         jButton9.setText("Enviar Solicitud");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
@@ -257,7 +202,7 @@ public class Vs extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton9);
-        jButton9.setBounds(30, 270, 120, 23);
+        jButton9.setBounds(10, 330, 120, 23);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Mis Solicitudes de Amistad"));
@@ -266,7 +211,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
+            .addGap(0, 618, Short.MAX_VALUE)
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,10 +219,11 @@ public class Vs extends javax.swing.JFrame {
         );
 
         jPanel6.add(jPanel10);
-        jPanel10.setBounds(10, 130, 720, 120);
+        jPanel10.setBounds(10, 150, 630, 120);
 
         jTabbedPane1.addTab("Gestionar Amigos", jPanel6);
 
+        jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setLayout(null);
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
@@ -287,17 +233,11 @@ public class Vs extends javax.swing.JFrame {
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(39, Short.MAX_VALUE)
-                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
+            .addGap(0, 698, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jFileChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 227, Short.MAX_VALUE)
         );
 
         jPanel5.add(jPanel7);
@@ -309,10 +249,106 @@ public class Vs extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Chat", jPanel5);
 
-        getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(160, 60, 830, 450);
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(null);
 
-        setSize(new java.awt.Dimension(1016, 555));
+        jLabel3.setText("Foto");
+        jLabel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(30, 10, 340, 170);
+
+        jLabel4.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel4.setText("Nombres:");
+        jPanel3.add(jLabel4);
+        jLabel4.setBounds(50, 240, 80, 30);
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel5.setText("Apellidos:");
+        jPanel3.add(jLabel5);
+        jLabel5.setBounds(50, 280, 80, 30);
+
+        jLabel6.setText("Tel:");
+        jPanel3.add(jLabel6);
+        jLabel6.setBounds(490, 140, 30, 30);
+
+        jLabel7.setText("Cel:");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(630, 130, 30, 40);
+
+        jButton7.setText("Editar Perfil");
+        jPanel3.add(jButton7);
+        jButton7.setBounds(480, 380, 150, 30);
+
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel8.setText("Descripción:");
+        jPanel3.add(jLabel8);
+        jLabel8.setBounds(390, 10, 90, 30);
+
+        jLabel9.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel9.setText("Edad:");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(80, 320, 50, 30);
+
+        jLabel10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel10.setText("Dirección:");
+        jPanel3.add(jLabel10);
+        jLabel10.setBounds(50, 360, 80, 30);
+
+        jLabel11.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel11.setText("Departamento:");
+        jPanel3.add(jLabel11);
+        jLabel11.setBounds(20, 410, 110, 30);
+
+        jLabel12.setText("Otras Redes:");
+        jPanel3.add(jLabel12);
+        jLabel12.setBounds(720, 140, 80, 30);
+        jPanel3.add(lNombres);
+        lNombres.setBounds(150, 240, 260, 30);
+        jPanel3.add(lApellidos);
+        lApellidos.setBounds(150, 280, 260, 30);
+        jPanel3.add(lTel);
+        lTel.setBounds(140, 320, 150, 30);
+        jPanel3.add(lCel);
+        lCel.setBounds(140, 360, 290, 30);
+        jPanel3.add(jLabel15);
+        jLabel15.setBounds(140, 410, 290, 30);
+        jPanel3.add(jLabel16);
+        jLabel16.setBounds(400, 220, 100, 30);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel3.add(jScrollPane1);
+        jScrollPane1.setBounds(480, 6, 500, 120);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        jPanel3.add(jScrollPane2);
+        jScrollPane2.setBounds(480, 170, 500, 180);
+
+        jButton10.setFont(new java.awt.Font("Verdana", 1, 11)); // NOI18N
+        jButton10.setText("Ver");
+        jPanel3.add(jButton10);
+        jButton10.setBounds(70, 190, 250, 23);
+
+        jTabbedPane1.addTab("Gestionar Perfil", jPanel3);
+
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(220, 70, 1020, 490);
+
+        setSize(new java.awt.Dimension(1285, 598));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -323,6 +359,10 @@ public class Vs extends javax.swing.JFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,6 +401,7 @@ public class Vs extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -369,13 +410,10 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
@@ -397,9 +435,10 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lApellidos;
     private javax.swing.JLabel lCel;

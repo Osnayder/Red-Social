@@ -14,10 +14,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/**
- *
- * @author osnayder
- */
+
 public class Vr extends javax.swing.JFrame {
 
     Usuario usuario = null;
@@ -367,7 +364,9 @@ public class Vr extends javax.swing.JFrame {
     
     private void enviarServidor(Object objecto){
         Archivo archivoEnvio = new Archivo("Subida",1,objecto);
-        Cliente cliente = new Cliente("0.0.0.0",17000, archivoEnvio);
+        Cliente cliente = new Cliente("0.0.0.0",17000);
+        cliente.enviar(archivoEnvio);
+        
     }
     
     

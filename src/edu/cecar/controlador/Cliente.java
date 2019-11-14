@@ -4,28 +4,57 @@ package edu.cecar.controlador;
 
 import edu.cecar.componentes.comunicaciones.SocketObjeto;
 import edu.cecar.modelo.Archivo;
+import edu.cecar.modelo.Sesion;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Cliente {
     
-        public Cliente(String IPServidor, int puerto, Archivo archivo) {
+        public SocketObjeto socketObjeto;
+        
+        public Cliente(String IPServidor, int puerto) {
+            
+            if(socketObjeto==null){
                 try {
-                    SocketObjeto socketObjeto = new SocketObjeto(IPServidor, puerto); 
+                    socketObjeto = new SocketObjeto(IPServidor, puerto); 
                     System.out.println("Me conecte");
-                    socketObjeto.getSalida().writeObject(archivo);
-                    System.out.println("Se Subio El Archivo");
-                    Thread.sleep(1000); 
-                    System.out.println("Cerrando conexión");
-                } catch (Exception e) {
-                      
+                } catch (Exception e) { 
                     e.printStackTrace();
                 }
+            }
         
          }
 
-        public static void enviar(Object objectoEnviar){
+        public  void enviar(Archivo archivoEnviar){
+            try {
+                socketObjeto.getSalida().writeObject(archivoEnviar);
+                System.out.println("Se Subio El Archivo");
+                
+                try {
+                    Thread.sleep(1000);
+                    System.out.println("cerrando conexcion!");
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } catch (IOException ex) {
+                Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
+        public Object recibir(){
+            Object objeto = null;
             
+            try {
+                objeto =  socketObjeto.getEntrada().readObject();
+                System.out.println("Caundo se recibio "+((Sesion)objeto).getIdUsuario());
+            } catch (IOException ex) {
+                Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+            
+            return objeto;
         }
 }
