@@ -57,4 +57,12 @@ public class Cliente {
             
             return objeto;
         }
+        
+        public void cerrar(){
+            try {
+                socketObjeto.getSocket().close();
+            } catch (IOException ex) {
+                Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
 }

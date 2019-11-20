@@ -102,7 +102,12 @@ public class Vp extends javax.swing.JFrame {
         getContentPane().add(usuarioSesion);
         usuarioSesion.setBounds(200, 110, 190, 30);
 
+        jButton2.setBackground(new java.awt.Color(51, 51, 51));
+        jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cerrar");
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, null, null, new java.awt.Color(0, 0, 0), new java.awt.Color(153, 153, 153)));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -131,7 +136,10 @@ public class Vp extends javax.swing.JFrame {
             Object recibir = cliente.recibir();
 
             if(validacionUsuario(recibir)){
-                new Vs().setVisible(true);
+                cliente.cerrar();
+                Vs ventanaSesion = new Vs((Sesion)recibir);
+                ventanaSesion.setVisible(true);
+                this.dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "No Se Puede Acceder Con Las Credenciales Ingresadas", 
                                                             "RESOC - Acceso", JOptionPane.ERROR_MESSAGE);
