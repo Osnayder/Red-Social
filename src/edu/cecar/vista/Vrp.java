@@ -1,7 +1,13 @@
 package edu.cecar.vista;
 
 import edu.cecar.componentes.Utilidades;
+import edu.cecar.modelo.Publicacion;
 import java.io.File;
+import java.sql.Time;
+import java.time.LocalTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -9,7 +15,8 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Vrp extends javax.swing.JFrame {
 
-    byte[] archivoMultimedia = null;
+    byte[] archivoMultimedia  = null;
+    Publicacion miPublicacion = null;
     
     public Vrp() {
         initComponents();
@@ -22,7 +29,7 @@ public class Vrp extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        nivelPrivacidad = new javax.swing.JComboBox<>();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -48,9 +55,9 @@ public class Vrp extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(30, 30, 240, 190);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solo Yo", "Solo Amigos", "Todos" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(280, 60, 190, 30);
+        nivelPrivacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solo Yo", "Solo Amigos", "Todos" }));
+        getContentPane().add(nivelPrivacidad);
+        nivelPrivacidad.setBounds(280, 60, 190, 30);
 
         jButton2.setText("Publicar");
         getContentPane().add(jButton2);
@@ -73,6 +80,9 @@ public class Vrp extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombresFormatos = "Formato de Archivos .jpg, .jpeg, .png";
         int ventana = 0;
+        Date fecha = new Date();
+        Calendar HoraSistema = new GregorianCalendar();
+        java.sql.Time hora = new java.sql.Time(HoraSistema.getTimeInMillis());
         
         FileNameExtensionFilter filto = new FileNameExtensionFilter(nombresFormatos,"jpg","png","jpeg");
         javax.swing.JFileChooser fileChooser = new javax.swing.JFileChooser();
@@ -88,6 +98,8 @@ public class Vrp extends javax.swing.JFrame {
                 archivoMultimedia = Utilidades.getBytes(String.valueOf(fileChooser.getSelectedFile()));
                 JOptionPane.showMessageDialog(this,"En hora buena! Se Cargo la Imagen",
                                             "Archivo",JOptionPane.INFORMATION_MESSAGE);
+                miPublicacion = new Publicacion(0, archivoMultimedia, 0,0, fecha, hora,nivelPrivacidad.getSelectedIndex());
+                System.out.println("hora: "+hora);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(this,"Upssss! no se pudo cargar la imagen",
                                                     "Archivo",JOptionPane.ERROR_MESSAGE);
@@ -131,11 +143,11 @@ public class Vrp extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JComboBox<String> nivelPrivacidad;
     private javax.swing.JLabel nombreMultimedia;
     // End of variables declaration//GEN-END:variables
 }
