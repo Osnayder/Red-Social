@@ -1,6 +1,7 @@
 package edu.cecar.vista;
 
 import edu.cecar.modelo.Sesion;
+import edu.cecar.modelo.Usuario;
 import java.awt.Color;
 import java.util.Date;
 import javax.swing.table.DefaultTableModel;
@@ -14,12 +15,17 @@ public class Vs extends javax.swing.JFrame {
     
     DefaultTableModel tablaPerfil = new DefaultTableModel(datos,cPublicacaiones);
     
-    public Vs(Sesion sesion) {
+    public Vs(Sesion sesionVs, Usuario usuarioVs) {
         initComponents();
         this.getRootPane().getContentPane().setBackground(Color.WHITE);
         
-       jLabel6.setText(sesion.getIdUsuario()+"");
-       jLabel7.setText(sesion.getUltimaConexion()+"");
+       jLabel6.setText(sesionVs.getIdUsuario()+"");
+       jLabel7.setText(sesionVs.getUltimaConexion()+"");
+       
+       lNombres.setText(usuarioVs.getNombres());
+       lApellidos.setText(usuarioVs.getApellidos());
+       ldireccion.setText(usuarioVs.getDireccion());
+       lDepartamento.setText(usuarioVs.getDepartamento());
     }
 
     @SuppressWarnings("unchecked")
@@ -42,7 +48,6 @@ public class Vs extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
@@ -63,9 +68,9 @@ public class Vs extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         lNombres = new javax.swing.JLabel();
         lApellidos = new javax.swing.JLabel();
-        lTel = new javax.swing.JLabel();
-        lCel = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        ledad = new javax.swing.JLabel();
+        ldireccion = new javax.swing.JLabel();
+        lDepartamento = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -137,7 +142,7 @@ public class Vs extends javax.swing.JFrame {
 
         jButton6.setText("Cerrar Sesión");
         jPanel2.add(jButton6);
-        jButton6.setBounds(880, 10, 130, 40);
+        jButton6.setBounds(890, 10, 130, 30);
 
         jLabel6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 102));
@@ -158,16 +163,17 @@ public class Vs extends javax.swing.JFrame {
         jPanel4.setLayout(null);
 
         jButton8.setText("Nueva Publicación");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton8);
-        jButton8.setBounds(10, 420, 130, 23);
+        jButton8.setBounds(10, 420, 150, 30);
 
         jButton12.setText("Eliminar publicacion");
         jPanel4.add(jButton12);
-        jButton12.setBounds(160, 420, 140, 23);
-
-        jButton13.setText("Publicaciones de amigos");
-        jPanel4.add(jButton13);
-        jButton13.setBounds(320, 420, 170, 23);
+        jButton12.setBounds(200, 420, 160, 30);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -303,12 +309,12 @@ public class Vs extends javax.swing.JFrame {
         lNombres.setBounds(150, 240, 260, 30);
         jPanel3.add(lApellidos);
         lApellidos.setBounds(150, 280, 260, 30);
-        jPanel3.add(lTel);
-        lTel.setBounds(140, 320, 150, 30);
-        jPanel3.add(lCel);
-        lCel.setBounds(140, 360, 290, 30);
-        jPanel3.add(jLabel15);
-        jLabel15.setBounds(140, 410, 290, 30);
+        jPanel3.add(ledad);
+        ledad.setBounds(140, 320, 150, 30);
+        jPanel3.add(ldireccion);
+        ldireccion.setBounds(140, 360, 290, 30);
+        jPanel3.add(lDepartamento);
+        lDepartamento.setBounds(140, 410, 290, 30);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -353,6 +359,11 @@ public class Vs extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Vrp ventanaPublicacion = new Vrp();
+        ventanaPublicacion.setVisible(true);
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -380,7 +391,8 @@ public class Vs extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vs(new Sesion(1, "1",new Date(),true)).setVisible(true);
+                Usuario n = null;
+                new Vs(new Sesion(1, "1",new Date(),true),n).setVisible(true);
             }
         });
     }
@@ -390,7 +402,6 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -402,7 +413,6 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -429,8 +439,9 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lApellidos;
-    private javax.swing.JLabel lCel;
+    private javax.swing.JLabel lDepartamento;
     private javax.swing.JLabel lNombres;
-    private javax.swing.JLabel lTel;
+    private javax.swing.JLabel ldireccion;
+    private javax.swing.JLabel ledad;
     // End of variables declaration//GEN-END:variables
 }

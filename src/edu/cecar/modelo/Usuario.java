@@ -52,5 +52,63 @@ public class Usuario implements Serializable{
         this.contrasena = contrasena;
     }
     
-    
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public String getNombres() {
+        return nombres;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public Date getFechanacimiento() {
+        return fechanacimiento;
+    }
+
+    public byte[] getFoto() {
+        return foto;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public ArrayList<Long> getCelular() {
+        return celular;
+    }
+
+    public ArrayList<Long> getTelefonos() {
+        return telefonos;
+    }
+
+    public ArrayList<Red> getOtrasredes() {
+        return otrasredes;
+    }
+
+    public Date getUlitmaconexion() {
+        return ulitmaconexion;
+    }
+
+    public boolean isEstadoconexion() {
+        return estadoconexion;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
 }

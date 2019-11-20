@@ -1,10 +1,7 @@
 package edu.cecar.controlador;
 
-
-
 import edu.cecar.componentes.comunicaciones.SocketObjeto;
 import edu.cecar.modelo.Archivo;
-import edu.cecar.modelo.Sesion;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,15 +44,11 @@ public class Cliente {
             
             try {
                 objeto =  socketObjeto.getEntrada().readObject();
-                System.out.println("Caundo se recibio "+((Sesion)objeto).getIdUsuario());
             } catch (IOException ex) {
                 Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
                 Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
-                
-            
             return objeto;
         }
-        
 }

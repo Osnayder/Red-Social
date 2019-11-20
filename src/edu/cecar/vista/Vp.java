@@ -3,6 +3,7 @@ package edu.cecar.vista;
 import edu.cecar.controlador.Cliente;
 import edu.cecar.modelo.Archivo;
 import edu.cecar.modelo.Sesion;
+import edu.cecar.modelo.Usuario;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -136,7 +137,9 @@ public class Vp extends javax.swing.JFrame {
             Object recibir = cliente.recibir();
 
             if(validacionUsuario(recibir)){
-                Vs ventanaSesion = new Vs((Sesion)recibir);
+                cliente.enviar(new Archivo("Subida",3,new Integer(id)));
+                Object recibido = cliente.recibir();
+                Vs ventanaSesion = new Vs((Sesion)recibir,(Usuario)recibido);
                 ventanaSesion.setVisible(true);
                 this.dispose();
             }else{
