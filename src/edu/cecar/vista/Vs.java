@@ -40,8 +40,11 @@ public class Vs extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jButton9 = new javax.swing.JButton();
@@ -68,6 +71,7 @@ public class Vs extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -79,7 +83,7 @@ public class Vs extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton1.setText("PERFIL");
+        jButton1.setText("Mi PERFIL");
         jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255), new java.awt.Color(204, 255, 255)));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,29 +157,30 @@ public class Vs extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setLayout(null);
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Mis Publicaciones"));
-        jPanel8.setToolTipText("");
-        jPanel8.setName(""); // NOI18N
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 708, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 227, Short.MAX_VALUE)
-        );
-
-        jPanel4.add(jPanel8);
-        jPanel8.setBounds(10, 11, 720, 250);
-        jPanel8.getAccessibleContext().setAccessibleName("");
-
         jButton8.setText("Nueva Publicación");
         jPanel4.add(jButton8);
-        jButton8.setBounds(250, 270, 130, 23);
+        jButton8.setBounds(10, 420, 130, 23);
+
+        jButton12.setText("Eliminar publicacion");
+        jPanel4.add(jButton12);
+        jButton12.setBounds(160, 420, 140, 23);
+
+        jButton13.setText("Publicaciones de amigos");
+        jPanel4.add(jButton13);
+        jButton13.setBounds(320, 420, 170, 23);
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane3.setViewportView(jTable2);
+
+        jPanel4.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 9, 990, 400);
 
         jTabbedPane1.addTab("Getionar Publicaciones", jPanel4);
 
@@ -273,7 +278,7 @@ public class Vs extends javax.swing.JFrame {
 
         jButton7.setText("Editar Perfil");
         jPanel3.add(jButton7);
-        jButton7.setBounds(480, 380, 150, 30);
+        jButton7.setBounds(570, 380, 150, 30);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel8.setText("Descripción:");
@@ -322,6 +327,10 @@ public class Vs extends javax.swing.JFrame {
         jButton10.setText("Ver");
         jPanel3.add(jButton10);
         jButton10.setBounds(70, 190, 250, 23);
+
+        jButton11.setText("Eliminar Cuenta");
+        jPanel3.add(jButton11);
+        jButton11.setBounds(740, 380, 130, 30);
 
         jTabbedPane1.addTab("Gestionar Perfil", jPanel3);
 
@@ -379,6 +388,9 @@ public class Vs extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -407,13 +419,14 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lApellidos;
     private javax.swing.JLabel lCel;

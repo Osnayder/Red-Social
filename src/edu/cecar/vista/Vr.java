@@ -24,6 +24,7 @@ public class Vr extends javax.swing.JFrame {
     ArrayList arrayCelulares = null;
     ArrayList<Red> arrayRedes = null;
     ArrayList cuentas = null;
+    Cliente cliente = null;
     
     public Vr() {
         initComponents();
@@ -40,7 +41,7 @@ public class Vr extends javax.swing.JFrame {
         
         areaDescripcion.setLineWrap(true);
         areaDescripcion.setWrapStyleWord(true);
-       
+        cliente = new Cliente("0.0.0.0",17000);
     }
 
     @SuppressWarnings("unchecked")
@@ -484,13 +485,18 @@ public class Vr extends javax.swing.JFrame {
         redes.setText("");
         jLabel15.setText("No Hay Imagen");
         
+        usuario = null;
+        archivoFoto = null;
+        arrayTelefonos = null;
+        arrayCelulares = null;
+        arrayRedes = null;
+        cuentas = null;
+        
     }
     
     private void enviarServidor(Object objecto){
         Archivo archivoEnvio = new Archivo("Subida",1,objecto);
-        Cliente cliente = new Cliente("0.0.0.0",17000);
         cliente.enviar(archivoEnvio);
-        
     }
     
     public boolean esNumero(String cadena){

@@ -136,7 +136,6 @@ public class Vp extends javax.swing.JFrame {
             Object recibir = cliente.recibir();
 
             if(validacionUsuario(recibir)){
-                cliente.cerrar();
                 Vs ventanaSesion = new Vs((Sesion)recibir);
                 ventanaSesion.setVisible(true);
                 this.dispose();
