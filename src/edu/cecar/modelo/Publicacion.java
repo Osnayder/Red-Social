@@ -8,7 +8,7 @@ package edu.cecar.modelo;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 
 /** Clase: 
  * 
@@ -26,18 +26,21 @@ import java.util.Date;
 public class Publicacion implements Serializable{
     
     private static final long serialVersionUID = 1000L;
-    private int id;
+    private int idUsuario;
     private byte[] cuerpo;
+    private String tetxo;
     private int megusta;
     private int nomegusta;
     private Date fecha;
     private Time hora;
     private int tipo_privacidad;
-
+    
     public Publicacion(){}
-    public Publicacion(int id, byte[] cuerpo, int megusta, int nomegusta, Date fecha, Time hora, int tipo_privacidad) {
-        this.id = id;
+
+    public Publicacion(int idUsuario, byte[] cuerpo, String tetxo, int megusta, int nomegusta, Date fecha, Time hora, int tipo_privacidad) {
+        this.idUsuario = idUsuario;
         this.cuerpo = cuerpo;
+        this.tetxo = tetxo;
         this.megusta = megusta;
         this.nomegusta = nomegusta;
         this.fecha = fecha;
@@ -53,12 +56,12 @@ public class Publicacion implements Serializable{
         this.tipo_privacidad = tipo_privacidad;
     }
 
-    public int getId() {
-        return id;
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public byte[] getCuerpo() {
@@ -67,6 +70,14 @@ public class Publicacion implements Serializable{
 
     public void setCuerpo(byte[] cuerpo) {
         this.cuerpo = cuerpo;
+    }
+
+    public String getTetxo() {
+        return tetxo;
+    }
+
+    public void setTetxo(String tetxo) {
+        this.tetxo = tetxo;
     }
 
     public int getMegusta() {
@@ -100,6 +111,5 @@ public class Publicacion implements Serializable{
     public void setHora(Time hora) {
         this.hora = hora;
     }
-    
     
 }

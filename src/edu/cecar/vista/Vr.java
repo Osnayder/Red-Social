@@ -2,6 +2,7 @@ package edu.cecar.vista;
 
 import edu.cecar.componentes.Utilidades;
 import edu.cecar.controlador.Cliente;
+import edu.cecar.controlador.RESOC;
 import edu.cecar.modelo.Archivo;
 import edu.cecar.modelo.Red;
 import edu.cecar.modelo.Usuario;
@@ -24,7 +25,7 @@ public class Vr extends javax.swing.JFrame {
     ArrayList arrayCelulares = null;
     ArrayList<Red> arrayRedes = null;
     ArrayList cuentas = null;
-    Cliente cliente = null;
+   
     
     public Vr() {
         initComponents();
@@ -41,7 +42,7 @@ public class Vr extends javax.swing.JFrame {
         
         areaDescripcion.setLineWrap(true);
         areaDescripcion.setWrapStyleWord(true);
-        cliente = new Cliente("0.0.0.0",17000);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -343,6 +344,7 @@ public class Vr extends javax.swing.JFrame {
             enviarServidor(usuario);
             limpiarCampos();
             usuario = null;
+            this.dispose();
             JOptionPane.showMessageDialog(this, "En Hora Buena! Se Registro Exitosamente, Binvenido", "Registro Usuario",JOptionPane.INFORMATION_MESSAGE);
         }else{
             if(!verificarNulidadCampos()){
@@ -496,7 +498,7 @@ public class Vr extends javax.swing.JFrame {
     
     private void enviarServidor(Object objecto){
         Archivo archivoEnvio = new Archivo("Subida",1,objecto);
-        cliente.enviar(archivoEnvio);
+        RESOC.getConexionServidor().enviar(archivoEnvio);
     }
     
     public boolean esNumero(String cadena){
