@@ -38,10 +38,17 @@ public class JPanelMy {
         JLabel jl = new JLabel();
          if(cuerpo!=null){
             try {
+                ImageIcon imagenIcono = null;
                 BufferedImage imagen = null;
                 InputStream in = new ByteArrayInputStream(cuerpo);
+                
                 imagen = ImageIO.read(in);
-                ImageIcon imagenIcono = new ImageIcon(imagen.getScaledInstance(300,300,0));
+                if(imagen!=null){
+                    imagenIcono = new ImageIcon(imagen.getScaledInstance(300,300,0));
+                }
+                
+
+                
                 jl.setLocation(5, 5);
                 jl.setSize(300, 300);
                 jl.setIcon(imagenIcono);
@@ -93,9 +100,9 @@ public class JPanelMy {
         jl5.setLocation(900, 100);
         
         switch(privacidad){
-            case 1: jl5.setText(": Solo Yo"); break;
-            case 2: jl5.setText(": Solo Amigos"); break;
-            case 3: jl5.setText(": Todos"); break;
+            case 0: jl5.setText(": Solo Yo"); break;
+            case 1: jl5.setText(": Solo Amigos"); break;
+            case 2: jl5.setText(": Todos"); break;
         }
         
         JLabel jl6 = new JLabel();

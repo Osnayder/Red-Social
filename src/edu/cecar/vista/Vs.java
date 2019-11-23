@@ -1,6 +1,5 @@
 package edu.cecar.vista;
 
-import edu.cecar.controlador.Cliente;
 import edu.cecar.controlador.ControlTabla;
 import edu.cecar.controlador.RESOC;
 import edu.cecar.modelo.Archivo;
@@ -9,7 +8,6 @@ import edu.cecar.modelo.Publicacion;
 import edu.cecar.modelo.Sesion;
 import edu.cecar.modelo.Usuario;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.image.BufferedImage;
@@ -20,20 +18,13 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
@@ -43,10 +34,6 @@ public class Vs extends javax.swing.JFrame {
 
     private static Sesion sesionVs   = null;
     private static Usuario usuarioVs = null;
-    
-    
-    
-
     private DefaultTableModel tablaPerfil = null;
     private DefaultTableModel tablaRedes = null;
     private DefaultTableModel tablaPublicaciones = null;
@@ -60,7 +47,6 @@ public class Vs extends javax.swing.JFrame {
         AdvertenciaCerrar();
         CargarDatosPerfil();
         cargarPublicaciones();
-        
         
     }
 
@@ -559,15 +545,13 @@ public class Vs extends javax.swing.JFrame {
     private void cargarPublicaciones(){
         RESOC.getConexionServidor().enviar(new Archivo("Subida",5,sesionVs));
         ArrayList<Publicacion> publicacionesrecibidas = (ArrayList<Publicacion>)RESOC.getConexionServidor().recibir();
-        
-        
-        JPanel panel = JPanelMy.getJPanelMy(publicacionesrecibidas.get(0).getCuerpo(),publicacionesrecibidas.get(0).getTetxo(),
-                publicacionesrecibidas.get(0).getMegusta(),publicacionesrecibidas.get(0).getNomegusta(),publicacionesrecibidas.get(0).getTipo_privacidad(),
-                publicacionesrecibidas.get(0).getFecha(),publicacionesrecibidas.get(0).getHora());
 
-        tablaPublicaciones.addRow(new Object[]{panel});
-        tablaPublicaciones.addRow(new Object[]{panel});
-        
+        for(int i=0; i<publicacionesrecibidas.size(); i++){
+            JPanel  panel = JPanelMy.getJPanelMy(publicacionesrecibidas.get(i).getCuerpo(),publicacionesrecibidas.get(i).getTetxo(),
+                publicacionesrecibidas.get(i).getMegusta(),publicacionesrecibidas.get(i).getNomegusta(),publicacionesrecibidas.get(i).getTipo_privacidad(),
+                publicacionesrecibidas.get(i).getFecha(),publicacionesrecibidas.get(i).getHora());
+            tablaPublicaciones.addRow(new Object[]{panel});
+        }
         
     }
     
