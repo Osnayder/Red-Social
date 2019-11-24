@@ -45,7 +45,7 @@ public class Vs extends javax.swing.JFrame {
         initComponents();
         componentesIniciales();
         AdvertenciaCerrar();
-        //CargarDatosPerfil();
+        CargarDatosPerfil();
         
     }
 
