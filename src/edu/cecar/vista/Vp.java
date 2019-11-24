@@ -1,6 +1,5 @@
 package edu.cecar.vista;
 
-import edu.cecar.controlador.Cliente;
 import edu.cecar.controlador.RESOC;
 import edu.cecar.modelo.Archivo;
 import edu.cecar.modelo.Sesion;
@@ -10,14 +9,13 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
-
 public class Vp extends javax.swing.JFrame {
      
     public Vp() {
         initComponents();
         componentesIniciales();
-        usuarioSesion.setText("1003214327");
-        contrasenaSesion.setText("yosoyosnaider");
+        //usuarioSesion.setText("1003214327");
+        //contrasenaSesion.setText("yosoyosnaider");
     }
 
     @SuppressWarnings("unchecked")

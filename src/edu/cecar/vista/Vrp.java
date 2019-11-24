@@ -5,8 +5,6 @@ import edu.cecar.controlador.RESOC;
 import edu.cecar.modelo.Archivo;
 import edu.cecar.modelo.Publicacion;
 import java.io.File;
-import java.sql.Time;
-import java.time.LocalTime;
 import java.util.Calendar;
 import java.sql.Date;
 import java.util.GregorianCalendar;
@@ -121,8 +119,12 @@ public class Vrp extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        if(miPublicacion!=null){
            RESOC.getConexionServidor().enviar(new Archivo("Subida", 4, miPublicacion));
+           JOptionPane.showMessageDialog(this, "Se Agrego exitosamente la Publicacion", "Nueva Publicacion", 
+                                                                                JOptionPane.INFORMATION_MESSAGE);
+           this.dispose();
        }else{
-           JOptionPane.showMessageDialog(this, "Publicaciones", "Primero Debe Agregar Un Contenido A Su Publicación", JOptionPane.ERROR_MESSAGE);
+           JOptionPane.showMessageDialog(this, "Publicaciones", "Primero Debe Agregar Un Contenido A Su Publicación", 
+                                                                                            JOptionPane.ERROR_MESSAGE);
        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
