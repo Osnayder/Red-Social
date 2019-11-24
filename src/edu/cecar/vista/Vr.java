@@ -221,7 +221,7 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(330, 250, 100, 30);
+        jButton3.setBounds(330, 250, 110, 30);
 
         areaDescripcion.setColumns(20);
         areaDescripcion.setFont(new java.awt.Font("Monospaced", 1, 14)); // NOI18N
@@ -229,7 +229,7 @@ public class Vr extends javax.swing.JFrame {
         jScrollPane1.setViewportView(areaDescripcion);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(590, 30, 410, 110);
+        jScrollPane1.setBounds(590, 30, 420, 110);
         getContentPane().add(fechanacimineto);
         fechanacimineto.setBounds(150, 170, 170, 30);
 
@@ -247,7 +247,7 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(330, 290, 100, 30);
+        jButton1.setBounds(330, 290, 110, 30);
 
         cargarImagen.setBackground(new java.awt.Color(200, 200, 200));
         cargarImagen.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -279,7 +279,7 @@ public class Vr extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4);
-        jButton4.setBounds(900, 170, 100, 30);
+        jButton4.setBounds(900, 170, 110, 30);
 
         jLabel12.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel12.setText("Nombre cuenta");

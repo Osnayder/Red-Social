@@ -34,6 +34,7 @@ public class Publicacion implements Serializable{
     private Date fecha;
     private Time hora;
     private int tipo_privacidad;
+    private int tipo_multimedia;
     
     public Publicacion(){}
 
