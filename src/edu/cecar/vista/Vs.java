@@ -227,9 +227,11 @@ public class Vs extends javax.swing.JFrame {
         jPanel3.add(jLabel5);
         jLabel5.setBounds(50, 370, 80, 30);
 
+        jButton7.setBackground(new java.awt.Color(204, 255, 255));
         jButton7.setText("Editar Perfil");
+        jButton7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.add(jButton7);
-        jButton7.setBounds(870, 350, 150, 30);
+        jButton7.setBounds(870, 350, 150, 40);
 
         jLabel8.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel8.setText("Descripción:");
@@ -416,6 +418,11 @@ public class Vs extends javax.swing.JFrame {
         jButton10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton10.setText("Enviar Solicitud de Amistad");
         jButton10.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton10);
         jButton10.setBounds(20, 340, 290, 40);
 
@@ -448,22 +455,31 @@ public class Vs extends javax.swing.JFrame {
         jPanel5.add(jPanel7);
         jPanel7.setBounds(10, 11, 710, 250);
 
+        jButton5.setBackground(new java.awt.Color(204, 255, 255));
+        jButton5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton5.setText("Enviar Mensaje");
+        jButton5.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.add(jButton5);
-        jButton5.setBounds(20, 270, 160, 30);
+        jButton5.setBounds(10, 270, 170, 40);
 
+        jButton13.setBackground(new java.awt.Color(204, 255, 255));
+        jButton13.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton13.setText("Buscar Conversacion");
+        jButton13.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
         jPanel5.add(jButton13);
-        jButton13.setBounds(230, 270, 160, 30);
+        jButton13.setBounds(230, 270, 170, 40);
 
+        jButton14.setBackground(new java.awt.Color(204, 255, 255));
+        jButton14.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton14.setText("Eliminar Conversacion");
+        jButton14.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel5.add(jButton14);
-        jButton14.setBounds(420, 270, 180, 30);
+        jButton14.setBounds(440, 270, 190, 40);
 
         jTabbedPane1.addTab("      Chat       ", jPanel5);
 
@@ -636,6 +652,11 @@ public class Vs extends javax.swing.JFrame {
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        Vsa ventanaSolicitudAmistad = new Vsa(0);
+            ventanaSolicitudAmistad.setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     public static Usuario getUsuario(){
         return Vs.usuarioVs;
