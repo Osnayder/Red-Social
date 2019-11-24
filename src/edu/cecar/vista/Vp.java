@@ -63,7 +63,7 @@ public class Vp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(botonInicarSesion);
-        botonInicarSesion.setBounds(430, 220, 140, 30);
+        botonInicarSesion.setBounds(460, 220, 140, 30);
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setText("Inicio de Sesión");
@@ -98,11 +98,10 @@ public class Vp extends javax.swing.JFrame {
         getContentPane().add(usuarioSesion);
         usuarioSesion.setBounds(260, 100, 190, 30);
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 153));
+        jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cerrar RESOC");
-        jButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,7 +109,7 @@ public class Vp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(270, 270, 150, 30);
+        jButton2.setBounds(280, 270, 150, 30);
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -118,7 +117,7 @@ public class Vp extends javax.swing.JFrame {
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jButton3);
-        jButton3.setBounds(280, 220, 130, 30);
+        jButton3.setBounds(280, 220, 150, 30);
 
         setSize(new java.awt.Dimension(668, 354));
         setLocationRelativeTo(null);

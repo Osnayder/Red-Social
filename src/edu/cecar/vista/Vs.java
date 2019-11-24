@@ -167,7 +167,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel1.add(jButton4);
         jButton4.setBounds(0, 260, 170, 40);
         jPanel1.add(jSeparator3);
-        jSeparator3.setBounds(0, 228, 170, 10);
+        jSeparator3.setBounds(0, 228, 170, 2);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 170, 600);
@@ -340,14 +340,14 @@ public class Vs extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton8);
-        jButton8.setBounds(190, 440, 220, 30);
+        jButton8.setBounds(190, 440, 220, 40);
 
         jButton12.setBackground(new java.awt.Color(204, 255, 255));
         jButton12.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton12.setText("Eliminar publicacion");
         jButton12.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.add(jButton12);
-        jButton12.setBounds(780, 440, 200, 30);
+        jButton12.setBounds(780, 440, 200, 40);
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -373,7 +373,7 @@ public class Vs extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jButton9);
-        jButton9.setBounds(460, 440, 280, 30);
+        jButton9.setBounds(460, 440, 280, 40);
 
         jTabbedPane1.addTab("Getionar Publicaciones", jPanel4);
 
@@ -654,8 +654,8 @@ public class Vs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        Vsa ventanaSolicitudAmistad = new Vsa(0);
-            ventanaSolicitudAmistad.setVisible(true);
+        Vgs ventanaEnviarSolicitud = new Vgs();
+            ventanaEnviarSolicitud.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
     public static Usuario getUsuario(){
