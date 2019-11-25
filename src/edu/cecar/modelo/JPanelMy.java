@@ -45,10 +45,8 @@ public class JPanelMy {
                 imagen = ImageIO.read(in);
                 if(imagen!=null){
                     imagenIcono = new ImageIcon(imagen.getScaledInstance(300,300,0));
-                }
-                
+                }                
 
-                
                 jl.setLocation(5, 5);
                 jl.setSize(300, 300);
                 jl.setIcon(imagenIcono);
@@ -60,15 +58,14 @@ public class JPanelMy {
         }
                 
         JTextArea ja = new JTextArea();
-        ja.setColumns(20);
         ja.setFont(new java.awt.Font("Monospaced", 1, 14));
         ja.setRows(5);
         ja.setSize(400,500);
         ja.setLocation(350, 20);
         ja.setLineWrap(true);
         ja.setWrapStyleWord(true);
-        ja.setText(texto);
-        ja.setVisible(true);
+        ja.setText("    Descripcion o Texto de Anexo: \n\n"+texto);
+        
         
         JLabel jb = new JLabel();
         jb.setText("Me Gusta");

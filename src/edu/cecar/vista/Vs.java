@@ -201,6 +201,7 @@ public class Vs extends javax.swing.JFrame {
         jLabel2.setBounds(370, 10, 100, 40);
 
         jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton6.setText("Cerrar Sesión");
         jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
