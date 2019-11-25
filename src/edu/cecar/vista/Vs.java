@@ -669,6 +669,7 @@ public class Vs extends javax.swing.JFrame {
                 jLabel3.setText("NO AGREGÓ IMAGEN");
             }
             
+            //tablaRedes
     }
     
     private void cargarPublicaciones(){
