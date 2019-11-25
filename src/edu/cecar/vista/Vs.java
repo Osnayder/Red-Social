@@ -654,7 +654,7 @@ public class Vs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        Vgs ventanaEnviarSolicitud = new Vgs();
+        Vgs ventanaEnviarSolicitud = new Vgs(sesionVs);
             ventanaEnviarSolicitud.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 

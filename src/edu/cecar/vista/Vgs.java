@@ -2,6 +2,8 @@ package edu.cecar.vista;
 
 import edu.cecar.controlador.RESOC;
 import edu.cecar.modelo.Archivo;
+import edu.cecar.modelo.Sesion;
+import edu.cecar.modelo.Solicitud;
 import edu.cecar.modelo.UsuarioConsulta;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -10,9 +12,12 @@ import javax.swing.table.DefaultTableModel;
 public class Vgs extends javax.swing.JFrame {
 
     private DefaultTableModel tablaResultadoBusqueda = null;
+    private ArrayList<UsuarioConsulta> listaUsuario = null;
+    private Sesion sesionUniversal = null;
     private boolean control = false;
     
-    public Vgs() {
+    public Vgs(Sesion sesion) {
+        this.sesionUniversal = sesion;
         ComponentesIniciales();
         initComponents();
     }
@@ -56,7 +61,7 @@ public class Vgs extends javax.swing.JFrame {
         Buscar.setBounds(610, 40, 180, 30);
 
         jButton2.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton2.setText("Cancelar");
+        jButton2.setText("Cancelar  y/o  Cerrar");
         jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,30 +102,19 @@ public class Vgs extends javax.swing.JFrame {
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
         String Valor = "";
+        
         if(!campoValorBusqueda.getText().equals("")){
             RESOC.getConexionServidor().enviar(new Archivo("Subida",6,jComboBox1.getSelectedIndex()+"+"+campoValorBusqueda.getText()));            
-            ArrayList<UsuarioConsulta> listaUsuario = (ArrayList<UsuarioConsulta>) RESOC.getConexionServidor().recibir();
+            listaUsuario = (ArrayList<UsuarioConsulta>) RESOC.getConexionServidor().recibir();
             
             tablaResultadoBusqueda.setRowCount(0);
             if(listaUsuario!=null){
-                switch(jComboBox1.getSelectedIndex()){
-                    case 0:
-                        for(int i=0; i<listaUsuario.size(); i++){
-                            tablaResultadoBusqueda.addRow(new Object[]{listaUsuario.get(i).getNombres(),listaUsuario.get(i).getApellidos(),
-                                                          listaUsuario.get(i).getDepartamento()," "+listaUsuario.get(i).getEdad()});
-                        }
-                        break;
-                    case 1:
-                        for(int i=0; i<listaUsuario.size(); i++){
-                            tablaResultadoBusqueda.addRow(new Object[]{listaUsuario.get(i).getNombres(),listaUsuario.get(i).getApellidos(),
-                                                          listaUsuario.get(i).getDepartamento()," "+listaUsuario.get(i).getEdad()});
-                        }
-                        break;
-                    case 2:
-                        break;
+    
+                for(int i=0; i<listaUsuario.size(); i++){
+                    tablaResultadoBusqueda.addRow(new Object[]{listaUsuario.get(i).getNombres(),listaUsuario.get(i).getApellidos(),
+                                                  listaUsuario.get(i).getDepartamento()," "+listaUsuario.get(i).getEdad()});
                 }
-                
-                
+                control = true;
             }else{
                 JOptionPane.showMessageDialog(this,"No Se Encontró Coincidencia Con el Valor y El Criterio Especificado",
                                                                 "Buqueda de Usuarios", JOptionPane.ERROR_MESSAGE);
@@ -137,12 +131,34 @@ public class Vgs extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        java.sql.Date fecha = new java.sql.Date(0);
+        
         if(control){
             if(jTable1.getSelectedRow() != -1){
                 DefaultTableModel modeloExtraerDatos = (DefaultTableModel)jTable1.getModel();
                 String valor = (String)modeloExtraerDatos.getValueAt(jTable1.getSelectedRow(),0);
-                System.out.println("Numero de Fila Seleccionada:  "+jTable1.getSelectedRow());
-                System.out.println("Valor: "+valor);
+                
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro de Enviar Solicitud de Amistad a "+valor+"?", 
+                                                         "Alerta!", JOptionPane.YES_NO_OPTION);                
+                
+                switch(resp){
+                    case -1:
+                        JOptionPane.showMessageDialog(this, "La Solicitud No Se Envió");
+                        break;
+                    case 0:
+                        for(int i=0; i<listaUsuario.size(); i++){
+                            if(listaUsuario.get(i).getNombres().equals(valor)){
+                                Solicitud solicitud = new Solicitud(sesionUniversal.getIdUsuario(), listaUsuario.get(i).getIdUsuario(), 0, fecha);
+                                RESOC.getConexionServidor().enviar(new Archivo("Subida",7,solicitud));
+                            }
+                        }
+                        JOptionPane.showMessageDialog(this, "Solicitud Enviada");
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "La Solicitud No Se Envió");
+                        break;
+                }
+                
             }else{
                 JOptionPane.showMessageDialog(this,"Debe Primero Seleccionar Un Usuario En La Tabla",
                                                      "Selección de Campo", JOptionPane.ERROR_MESSAGE);
@@ -159,42 +175,8 @@ public class Vgs extends javax.swing.JFrame {
         Object[][] datos = {};
         
         tablaResultadoBusqueda = new DefaultTableModel(datos,cabezaTabla);
-        
     }
    
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vgs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vgs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vgs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vgs.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Vgs().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
     private javax.swing.JTextField campoValorBusqueda;
