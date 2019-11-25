@@ -795,10 +795,7 @@ public class Vs extends javax.swing.JFrame {
     public static Sesion getSesion(){
         return Vs.sesionVs;
     }
-   
-    public static void main(String[]args){
-        new Vs(null,null).setVisible(true);
-    }
+  
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea areaTextoPerfil;

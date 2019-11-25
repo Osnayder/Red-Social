@@ -47,14 +47,14 @@ public class Vrp extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(30, 140, 140, 30);
+        jButton1.setBounds(30, 140, 180, 30);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(30, 30, 470, 100);
+        jScrollPane1.setBounds(30, 30, 530, 100);
 
         nivelPrivacidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Solo Yo", "Solo Amigos", "Todos" }));
         getContentPane().add(nivelPrivacidad);
@@ -77,20 +77,21 @@ public class Vrp extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(40, 10, 160, 14);
         getContentPane().add(nombreMultimedia);
-        nombreMultimedia.setBounds(240, 140, 230, 30);
+        nombreMultimedia.setBounds(300, 140, 260, 30);
 
         jLabel3.setText("Nombre:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(180, 140, 50, 30);
+        jLabel3.setBounds(220, 140, 50, 30);
 
-        setSize(new java.awt.Dimension(559, 300));
+        setSize(new java.awt.Dimension(598, 300));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombresFormatos = "Formato de Archivos .jpg, .jpeg, .png, .mp3, .mp4";
         int ventana = 0;
-        Date fecha = new Date(0);
+        long millis=System.currentTimeMillis();
+        Date fecha = new Date(millis);
         Calendar HoraSistema = new GregorianCalendar();
         java.sql.Time hora = new java.sql.Time(HoraSistema.getTimeInMillis());
         
