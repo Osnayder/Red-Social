@@ -741,7 +741,7 @@ public class Vs extends javax.swing.JFrame {
        Integer identificacion = new Integer(sesionVs.getIdUsuario());
         RESOC.getConexionServidor().enviar(new Archivo("Subida",8, identificacion));
         ArrayList<UsuarioConsulta> listaAmigosRecibida = (ArrayList<UsuarioConsulta>) RESOC.getConexionServidor().recibir();
-        System.out.println("se consulto con: "+identificacion.intValue());
+        
         if(listaAmigosRecibida!=null){
             tablaListaAmigos.setRowCount(0);
             for(int i=0; i<listaAmigosRecibida.size(); i++){

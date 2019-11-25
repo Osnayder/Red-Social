@@ -28,12 +28,6 @@ public class Cliente {
                 socketObjeto.getSalida().writeObject(archivoEnviar);
                 System.out.println("Se Subio El Archivo");
                 
-                try {
-                    Thread.sleep(1000);
-                    System.out.println("cerrando conexcion!");
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-                }
             } catch (IOException ex) {
                 Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
