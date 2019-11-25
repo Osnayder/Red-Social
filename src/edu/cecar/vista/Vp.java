@@ -37,7 +37,7 @@ public class Vp extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setBackground(new java.awt.Color(204, 255, 255));
         jButton1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton1.setText("Registrarse");
         jButton1.setToolTipText("Clic aqui para registrase en RESOC");
@@ -51,7 +51,7 @@ public class Vp extends javax.swing.JFrame {
         getContentPane().add(jButton1);
         jButton1.setBounds(130, 220, 120, 30);
 
-        botonInicarSesion.setBackground(new java.awt.Color(255, 255, 255));
+        botonInicarSesion.setBackground(new java.awt.Color(204, 255, 255));
         botonInicarSesion.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         botonInicarSesion.setText("Iniciar Sesión");
         botonInicarSesion.setToolTipText("Clic aquí para iniciar sesión");
@@ -111,11 +111,16 @@ public class Vp extends javax.swing.JFrame {
         getContentPane().add(jButton2);
         jButton2.setBounds(280, 270, 150, 30);
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
+        jButton3.setBackground(new java.awt.Color(204, 255, 255));
         jButton3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jButton3.setText("Eliminar Mi Cuenta");
         jButton3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton3);
         jButton3.setBounds(280, 220, 150, 30);
 
@@ -160,6 +165,42 @@ public class Vp extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        System.exit(0);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        Sesion ssee = new Sesion(Integer.parseInt(usuarioSesion.getText()),contrasenaSesion.getText(),null,false);
+        
+        RESOC.getConexionServidor().enviar(new Archivo("Subida",2,ssee));
+        Object recibir = RESOC.getConexionServidor().recibir();
+
+            if(validacionUsuario(recibir)){
+                RESOC.getConexionServidor().enviar(new Archivo("Subida",3,new Integer(Integer.parseInt(usuarioSesion.getText()))));
+                Object recibido = RESOC.getConexionServidor().recibir();
+                Usuario usuario = (Usuario) recibido;
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro De Eliminar Su Cuenta De RESOC Señor "+
+                            usuario.getNombres()+" "+usuario.getApellidos()+"?","Alerta!", JOptionPane.YES_NO_OPTION);  
+                
+                switch(resp){
+                    case -1:
+                        JOptionPane.showMessageDialog(this, "Canceló La Operación, Usted Aun  Continua Con Nosotros");
+                        break;
+                    case 0:
+                        RESOC.getConexionServidor().enviar(new Archivo("Subida",11, ssee));
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "Canceló La Operación, Usted Aun  Continua Con Nosotros");
+                        break;
+                }
+                
+                
+                usuarioSesion.setText("");
+                contrasenaSesion.setText("");
+                JOptionPane.showMessageDialog(this, "Operacion Exitosa, Usted Ya No Hace Parte de RESOC");
+            }else{
+                JOptionPane.showMessageDialog(this, "Usted No Se Encuentra Resgitrado!", 
+                                                            "RESOC", JOptionPane.ERROR_MESSAGE);
+            }   
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     private void componentesIniciales(){
         this.setUndecorated(true);

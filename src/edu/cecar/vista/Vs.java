@@ -6,7 +6,9 @@ import edu.cecar.modelo.Archivo;
 import edu.cecar.modelo.JPanelMy;
 import edu.cecar.modelo.Publicacion;
 import edu.cecar.modelo.Sesion;
+import edu.cecar.modelo.Solicitud;
 import edu.cecar.modelo.Usuario;
+import edu.cecar.modelo.UsuarioConsulta;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -32,11 +34,16 @@ import javax.swing.table.TableColumnModel;
 
 public class Vs extends javax.swing.JFrame {
 
+    private boolean control = false;
     private static Sesion sesionVs   = null;
     private static Usuario usuarioVs = null;
     private DefaultTableModel tablaPerfil = null;
     private DefaultTableModel tablaRedes = null;
     private DefaultTableModel tablaPublicaciones = null;
+    private DefaultTableModel tablaListaAmigos = null;
+    private DefaultTableModel tablaListaSolictudes = null;
+    private ArrayList<UsuarioConsulta> listaUsuarioEsperando = null;
+    
     
     public Vs(Sesion sesionVs1, Usuario usuarioVs1) {
         Vs.sesionVs = sesionVs1;
@@ -98,9 +105,16 @@ public class Vs extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
         jPanel10 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton17 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
@@ -176,7 +190,7 @@ public class Vs extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(null);
         jPanel2.add(jSeparator1);
-        jSeparator1.setBounds(40, 50, 1040, 10);
+        jSeparator1.setBounds(40, 50, 1100, 10);
 
         jLabel1.setText("Usuario: ");
         jPanel2.add(jLabel1);
@@ -208,7 +222,7 @@ public class Vs extends javax.swing.JFrame {
         jLabel7.setBounds(480, 10, 230, 40);
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(170, 0, 1130, 60);
+        jPanel2.setBounds(170, 0, 1140, 60);
 
         jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -381,38 +395,44 @@ public class Vs extends javax.swing.JFrame {
         jPanel6.setLayout(null);
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Mis Amigos"));
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mis Amigos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 12))); // NOI18N
+        jPanel9.setLayout(null);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
-        );
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane5.setViewportView(jTable4);
+
+        jPanel9.add(jScrollPane5);
+        jScrollPane5.setBounds(10, 20, 530, 290);
 
         jPanel6.add(jPanel9);
-        jPanel9.setBounds(11, 11, 520, 310);
+        jPanel9.setBounds(11, 11, 550, 320);
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Mis Solicitudes de Amistad"));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Mis Solicitudes de Amistad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Verdana", 1, 12))); // NOI18N
+        jPanel10.setLayout(null);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 558, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
-        );
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane6.setViewportView(jTable5);
+
+        jPanel10.add(jScrollPane6);
+        jScrollPane6.setBounds(6, 18, 550, 290);
 
         jPanel6.add(jPanel10);
-        jPanel10.setBounds(540, 10, 570, 310);
+        jPanel10.setBounds(570, 10, 560, 320);
 
         jButton10.setBackground(new java.awt.Color(204, 255, 255));
         jButton10.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
@@ -424,14 +444,50 @@ public class Vs extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton10);
-        jButton10.setBounds(20, 340, 290, 40);
+        jButton10.setBounds(20, 390, 260, 40);
 
         jButton11.setBackground(new java.awt.Color(204, 255, 255));
         jButton11.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jButton11.setText("Interactuar Con Amigo");
+        jButton11.setText("Ver Perfil Amigo");
         jButton11.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel6.add(jButton11);
-        jButton11.setBounds(320, 340, 210, 40);
+        jButton11.setBounds(300, 340, 220, 40);
+
+        jButton15.setBackground(new java.awt.Color(204, 255, 255));
+        jButton15.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton15.setText("Ver Y Actualizar Solicitudes");
+        jButton15.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton15);
+        jButton15.setBounds(620, 340, 240, 40);
+
+        jButton16.setBackground(new java.awt.Color(204, 255, 255));
+        jButton16.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton16.setText("Aceptar Solicitud");
+        jButton16.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton16);
+        jButton16.setBounds(880, 340, 190, 40);
+
+        jButton17.setBackground(new java.awt.Color(204, 255, 255));
+        jButton17.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jButton17.setText("Ver y Actualizar Lista Amigos");
+        jButton17.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton17);
+        jButton17.setBounds(20, 340, 260, 40);
 
         jTabbedPane1.addTab("Gestionar Amigos", jPanel6);
 
@@ -484,9 +540,9 @@ public class Vs extends javax.swing.JFrame {
         jTabbedPane1.addTab("      Chat       ", jPanel5);
 
         getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(170, 60, 1130, 540);
+        jTabbedPane1.setBounds(170, 60, 1140, 540);
 
-        setSize(new java.awt.Dimension(1318, 641));
+        setSize(new java.awt.Dimension(1327, 641));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -516,12 +572,19 @@ public class Vs extends javax.swing.JFrame {
         String[] cTelCel = {"    Telefonos     ","   Celulares   "};
         String[] cRedes = {" WhatsApp  ","  Instagram  "," Facebook ","   Twiter  "};
         String[] cPublicaciones = {"Mis Publicaciones"};
+        String[] cListaAmigos = {"    Nombres   ","   Apellidos    ","    Departamento  ","    Edad    "};
         
         tablaPerfil = new DefaultTableModel(datos,cTelCel);
         jTable1.setModel(tablaPerfil);
         
         tablaRedes = new DefaultTableModel(datos,cRedes);
         jTable3.setModel(tablaRedes);
+        
+        tablaListaAmigos = new DefaultTableModel(datos, cListaAmigos);
+        jTable4.setModel(tablaListaAmigos);
+        
+        tablaListaSolictudes = new DefaultTableModel(datos, cListaAmigos);
+        jTable5.setModel(tablaListaSolictudes);
         
         jTable2.setDefaultRenderer(Object.class, new ControlTabla());
         tablaPublicaciones = new DefaultTableModel(datos, cPublicaciones){
@@ -658,6 +721,73 @@ public class Vs extends javax.swing.JFrame {
             ventanaEnviarSolicitud.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        RESOC.getConexionServidor().enviar(new Archivo("Subida",9, new Integer(usuarioVs.getIdUsuario())));
+        listaUsuarioEsperando = (ArrayList<UsuarioConsulta>) RESOC.getConexionServidor().recibir(); 
+        if(listaUsuarioEsperando!=null){
+            tablaListaSolictudes.setRowCount(0);
+            for(int i=0; i<listaUsuarioEsperando.size(); i++){
+                tablaListaSolictudes.addRow(new Object[]{listaUsuarioEsperando.get(i).getNombres(),listaUsuarioEsperando.get(i).getApellidos(),
+                                 listaUsuarioEsperando.get(i).getDepartamento(),listaUsuarioEsperando.get(i).getEdad()+""});
+                control = true;
+            }
+            
+        }else{
+            JOptionPane.showMessageDialog(this,"Uppss! Usted Aun No a Recibido Alguna Solicitud!","Lista de Solicitudes de Amistad",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+       Integer identificacion = new Integer(sesionVs.getIdUsuario());
+        RESOC.getConexionServidor().enviar(new Archivo("Subida",8, identificacion));
+        ArrayList<UsuarioConsulta> listaAmigosRecibida = (ArrayList<UsuarioConsulta>) RESOC.getConexionServidor().recibir();
+        System.out.println("se consulto con: "+identificacion.intValue());
+        if(listaAmigosRecibida!=null){
+            tablaListaAmigos.setRowCount(0);
+            for(int i=0; i<listaAmigosRecibida.size(); i++){
+                tablaListaAmigos.addRow(new Object[]{listaAmigosRecibida.get(i).getNombres(),listaAmigosRecibida.get(i).getApellidos(),
+                                 listaAmigosRecibida.get(i).getDepartamento(),listaAmigosRecibida.get(i).getEdad()+""});
+            }
+        }else{
+            JOptionPane.showMessageDialog(this,"Uppss! Aun No Tiene Ningun Amigo!","Lista de Amigos",JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        if(control){
+            if(jTable5.getSelectedRow() != -1){
+                DefaultTableModel modeloExtraerDatos = (DefaultTableModel)jTable5.getModel();
+                String valor = (String)modeloExtraerDatos.getValueAt(jTable5.getSelectedRow(),0);
+                
+                int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro De  Aceptar La Solicitud de "+valor+"?", 
+                                                         "Alerta!", JOptionPane.YES_NO_OPTION);                  
+                switch(resp){
+                    case -1:
+                        JOptionPane.showMessageDialog(this, "La Solicitud No Fue Aceptada");
+                        break;
+                    case 0:
+                        for(int i=0; i<listaUsuarioEsperando.size(); i++){
+                            if(listaUsuarioEsperando.get(i).getNombres().equals(valor)){
+                                Solicitud solicitud = new Solicitud(sesionVs.getIdUsuario(), listaUsuarioEsperando.get(i).getIdUsuario(), 0, null);
+                                RESOC.getConexionServidor().enviar(new Archivo("Subida",10,solicitud));
+                            }
+                        }
+                        JOptionPane.showMessageDialog(this, "Solicitud Aceptada");
+                        break;
+                    case 1:
+                        JOptionPane.showMessageDialog(this, "La Solicitud No Fue Aceptada");
+                        break;
+                }   
+            }else{
+                JOptionPane.showMessageDialog(this,"Debe Primero Seleccionar Un Usuario de La Lista de Solicitudes",
+                                                     "Selección de Campo", JOptionPane.ERROR_MESSAGE);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this,"Debe Primero Actulizar Y Listar Tu Solicitudes De Amistad",
+                                                     "Listar Solicitudes", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton16ActionPerformed
+
     public static Usuario getUsuario(){
         return Vs.usuarioVs;
     }
@@ -678,6 +808,9 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -713,12 +846,16 @@ public class Vs extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
     private javax.swing.JLabel lApellidos;
     private javax.swing.JLabel lDepartamento;
     private javax.swing.JLabel lNombres;
